@@ -69,7 +69,7 @@ module.exports = {
           image: articleFound.image,
         });
       })
-      .catch((err) => {
+      .catch(() => {
         response.status(404).json({
           error: "Aucun article n'as été trouvé avec cet id ❌",
         });

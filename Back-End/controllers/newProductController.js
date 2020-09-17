@@ -73,7 +73,7 @@ module.exports = {
           picture: newProductFound.picture,
         });
       })
-      .catch((err) => {
+      .catch(() => {
         response.status(404).json({
           error: "Aucun produit n'a été trouvé avec cet identifiant. ❌",
         });
