@@ -25,4 +25,13 @@ basketRouter.put('/baskets/:id', (request, response) => {
   });
 });
 
+// Route pour effacer un panier de produits
+basketRouter.delete('/baskets', (request, response) => {
+  let userSession = {};
+  userController.getUserSession(request, response, (userInfos) => {
+    userSession = userInfos;
+    basketController.deleteBasket(request, response, userSession);
+  });
+});
+
 module.exports = basketRouter;

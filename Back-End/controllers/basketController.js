@@ -68,14 +68,14 @@ module.exports = {
         });
       });
   },
-  updateBasket: async (request, response, userSession) => {
+  updateBasket: (request, response, userSession) => {
     const basket = {
       id: request.params.id,
       quantity: request.body.quantity,
       total_price: request.body.total_price,
       user_id: userSession.id,
     };
-    await models.Basket.updateOne({ id: request.params.id }, basket)
+    models.Basket.update(basket, { where: { id: request.params.id } })
       .then(() => {
         response.status(201).json({
           message: 'Votre panier a été mis à jour avec succès ! ',
@@ -87,39 +87,18 @@ module.exports = {
         });
       });
   },
-
-  //   updateBasket: async (request, response, userSession) => {
-  //     const basket = {
-  //       id: request.params.id,
-  //       quantity: request.body.quantity,
-  //       total_price: request.body.total_price,
-  //       user_id: userSession.id,
-  //     };
-  //     const basketFound = await models.Basket.findOne({
-  //       attributes: ['id'],
-  //       where: { id: basket.user_id },
-  //     });
-  //     if (basketFound) {
-  //       const basket = await models.Basket.updateOne({
-  //         quantity: request.body.quantity,
-  //         total_price: request.body.total_price,
-  //         user_id: userSession.id,
-  //       });
-  //       if (basket) {
-  //         return response.status(201).json({
-  //           id: basket.id,
-  //           quantity: basket.quantity,
-  //           total_price: basket.total_price,
-  //         });
-  //       } else {
-  //         return response.status(401).json({
-  //           error: 'Impossible de mettre à jour le panier. ❌',
-  //         });
-  //       }
-  //     } else {
-  //       return response.status(404).json({
-  //         error: "Le panier que vous voulez mettre à jour n'existe pas. ❌",
-  //       });
-  //     }
-  //   },
+  deleteBasket: (request, response, userSession) => {
+    models.Basket.destroy({ where: { id: userSession.id } })
+      .then(() => {
+        response.status(201).json({
+          message: 'Votre panier a été supprimé avec succès ! ',
+        });
+      })
+      .catch(() => {
+        response.status(400).json({
+          error: "Votre panier n'a pas pu être supprimé. ❌",
+        });
+      });
+    console.log('request.params : ', request.params);
+  },
 };
