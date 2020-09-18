@@ -9,14 +9,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.NewProduct.belongsTo(models.Administrator, {
-        foreignKey: {
-          allowNull: true,
-          name: 'administrator_id',
-        },
-      });
-      models.NewProduct.belongsToMany(models.Basket, {
-        through: 'BasketNewProducts',
+      models.NewProduct.belongsToMany(models.Order, {
+        through: 'OrderNewProducts',
         foreignKey: 'new_product_id',
       });
     }
@@ -28,7 +22,6 @@ module.exports = (sequelize, DataTypes) => {
       price: DataTypes.FLOAT,
       quantity: DataTypes.INTEGER,
       picture: DataTypes.TEXT,
-      administrator_id: DataTypes.INTEGER,
     },
     {
       sequelize,

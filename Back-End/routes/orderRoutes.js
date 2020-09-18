@@ -1,37 +1,37 @@
 const express = require('express');
-const basketController = require('../controllers/basketController');
+const orderController = require('../controllers/orderController');
 const userController = require('../controllers/userController');
 
-const basketRouter = express.Router();
+const orderRouter = express.Router();
 
 // Route pour récupérer le panier de produits
-basketRouter.get('/baskets/:id', basketController.getBasketById);
+orderRouter.get('/orders/:id', orderController.getOrderById);
 
 // Route pour créer le panier de produits
-basketRouter.post('/baskets', (request, response) => {
+orderRouter.post('/orders', (request, response) => {
   let userSession = {};
   userController.getUserSession(request, response, (userInfos) => {
     userSession = userInfos;
-    basketController.addBasket(request, response, userSession);
+    orderController.addOrder(request, response, userSession);
   });
 });
 
 // Route pour mettre à jour le panier de produits
-basketRouter.put('/baskets/:id', (request, response) => {
+orderRouter.put('/orders/:id', (request, response) => {
   let userSession = {};
   userController.getUserSession(request, response, (userInfos) => {
     userSession = userInfos;
-    basketController.updateBasket(request, response, userSession);
+    orderController.updateOrder(request, response, userSession);
   });
 });
 
 // Route pour effacer un panier de produits
-basketRouter.delete('/baskets', (request, response) => {
+orderRouter.delete('/orders', (request, response) => {
   let userSession = {};
   userController.getUserSession(request, response, (userInfos) => {
     userSession = userInfos;
-    basketController.deleteBasket(request, response, userSession);
+    orderController.deleteOrder(request, response, userSession);
   });
 });
 
-module.exports = basketRouter;
+module.exports = orderRouter;

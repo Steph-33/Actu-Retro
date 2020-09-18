@@ -24,13 +24,6 @@ module.exports = {
       picture: {
         type: Sequelize.TEXT,
       },
-      administrator_id: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Administrators',
-          key: 'id',
-        },
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

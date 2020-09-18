@@ -9,27 +9,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.OrderNewProduct.belongsTo(models.User, {
-        foreignKey: {
-          allowNull: true,
-          name: 'user_id',
-        },
-      });
-      models.OrderNewProduct.belongsTo(models.Basket, {
-        foreignKey: {
-          allowNull: true,
-          name: 'basket_id',
-        },
-      });
     }
   }
   OrderNewProduct.init(
     {
-      date_of_order: DataTypes.DATE,
       quantity: DataTypes.INTEGER,
-      total_price: DataTypes.FLOAT,
-      basket_id: DataTypes.INTEGER,
-      user_id: DataTypes.INTEGER,
+      order_id: DataTypes.INTEGER,
+      new_product_id: DataTypes.INTEGER,
     },
     {
       sequelize,

@@ -9,12 +9,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      models.Article.belongsTo(models.Administrator, {
-        foreignKey: {
-          allowNull: true,
-          name: 'administrator_id',
-        },
-      });
     }
   }
   Article.init(
@@ -22,8 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       title: DataTypes.STRING,
       content: DataTypes.TEXT,
       author: DataTypes.STRING,
-      image: DataTypes.STRING,
-      administrator_id: DataTypes.INTEGER,
+      image: DataTypes.TEXT,
     },
     {
       sequelize,

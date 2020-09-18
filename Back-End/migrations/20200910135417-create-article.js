@@ -22,15 +22,7 @@ module.exports = {
       },
       image: {
         allowNull: true,
-        type: Sequelize.STRING,
-      },
-      administrator_id: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Administrators',
-          key: 'id',
-        },
+        type: Sequelize.TEXT,
       },
       createdAt: {
         allowNull: false,

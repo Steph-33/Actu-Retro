@@ -5,14 +5,14 @@ require('express-async-errors');
 const ConflictError = require('../utils/errors/conflict');
 
 module.exports = {
-  addArticle: async (request, response, adminSession) => {
+  addArticle: async (request, response) => {
     const article = {
       title: request.body.title,
       content: request.body.content,
       author: request.body.author,
       image: request.body.image,
-      administrator_id: adminSession.id,
     };
+
     for (const key in article) {
       if (article[key] == null) {
         return response.status(400).json({
@@ -30,7 +30,6 @@ module.exports = {
         content: request.body.content,
         author: request.body.author,
         image: request.body.image,
-        administrator_id: adminSession.id,
       });
       if (newArticle) {
         return response.status(201).json({
