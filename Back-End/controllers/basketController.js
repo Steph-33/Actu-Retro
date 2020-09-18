@@ -88,7 +88,7 @@ module.exports = {
       });
   },
   deleteBasket: (request, response, userSession) => {
-    models.Basket.destroy({ where: { id: userSession.id } })
+    models.Basket.destroy({ where: { user_id: userSession.id } })
       .then(() => {
         response.status(201).json({
           message: 'Votre panier a été supprimé avec succès ! ',
