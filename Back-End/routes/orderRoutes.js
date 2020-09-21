@@ -4,10 +4,16 @@ const userController = require('../controllers/userController');
 
 const orderRouter = express.Router();
 
-// Route pour récupérer le panier de produits
-orderRouter.get('/orders/:id', orderController.getOrderById);
+// Route pour récupérer la commande
+orderRouter.get('/orders/:id', (request, response) => {
+  let userSession = {};
+  userController.getUserSession(request, response, (userInfos) => {
+    userSession = userInfos;
+    orderController.getOrderById(request, response, userSession);
+  });
+});
 
-// Route pour créer le panier de produits
+// Route pour créer la commande
 orderRouter.post('/orders', (request, response) => {
   let userSession = {};
   userController.getUserSession(request, response, (userInfos) => {
@@ -16,7 +22,7 @@ orderRouter.post('/orders', (request, response) => {
   });
 });
 
-// Route pour mettre à jour le panier de produits
+// Route pour mettre à jour la commande
 orderRouter.put('/orders/:id', (request, response) => {
   let userSession = {};
   userController.getUserSession(request, response, (userInfos) => {
@@ -25,7 +31,7 @@ orderRouter.put('/orders/:id', (request, response) => {
   });
 });
 
-// Route pour effacer un panier de produits
+// Route pour effacer la commande
 orderRouter.delete('/orders', (request, response) => {
   let userSession = {};
   userController.getUserSession(request, response, (userInfos) => {
