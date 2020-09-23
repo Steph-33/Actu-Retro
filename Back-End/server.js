@@ -10,6 +10,9 @@ const { notFoundHandler, errorLogger, errorHandler } = require('./middlewares');
 // Instanciation du serveur
 let server = express();
 
+//Définition des Cors
+server.use(cors());
+
 // Configuration de Body Parser
 server.use(bodyParser.urlencoded({ extended: true }));
 server.use(bodyParser.json());
@@ -22,9 +25,6 @@ server.get('/', (request, response) => {
   response.send("Bienvenue sur ActuRetro, toute l'actualité du retrogaming");
 });
 server.use('/api/', router);
-
-//Définition des Cors
-server.use(cors());
 
 // server.use((request, response, next) => {
 //   response.setHeader(
