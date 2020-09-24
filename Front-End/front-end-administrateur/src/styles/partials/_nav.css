@@ -1,0 +1,18 @@
+nav {
+  background-color: #072050;
+  color: white;
+}
+
+.box-session {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.sign-out {
+  margin-right: 2em;
+  background-color: #072050;
+  width: 3%;
+  height: 3%;
+  cursor: pointer;
+  float: right;
+}

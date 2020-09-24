@@ -1,3 +1,4 @@
+@import './styles/partials/_nav.css';
 @import './styles/pages/_login.css';
 @import './styles/pages/_article.css';
 @import './styles/pages/_newproduct.css';

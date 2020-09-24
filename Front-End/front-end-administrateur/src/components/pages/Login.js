@@ -36,7 +36,7 @@ export default function Login() {
 
   return (
     <div
-      className="container"
+      className="container-login"
       method="POST"
       action="/login"
       onSubmit={handleSubmit}
@@ -61,8 +61,9 @@ export default function Login() {
           placeholder="Mot de passe..."
           value={login.password}
           onChange={handleChange}
+          required
         />
-        <button className="btn-style" type="submit">
+        <button className="form-login button" type="submit">
           Connexion
         </button>
       </form>
