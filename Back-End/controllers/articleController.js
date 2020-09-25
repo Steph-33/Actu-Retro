@@ -5,6 +5,7 @@ require('express-async-errors');
 const ConflictError = require('../utils/errors/conflict');
 
 module.exports = {
+  // Ajouter un article
   addArticle: async (request, response) => {
     const article = {
       title: request.body.title,
@@ -54,6 +55,7 @@ module.exports = {
       );
     }
   },
+  // Récupérer un article par son Id
   getArticleById: (request, response) => {
     models.Article.findOne({
       attributes: ['id', 'title', 'content', 'author', 'image'],
@@ -74,11 +76,47 @@ module.exports = {
         });
       });
   },
+  // Récupérer tous les articles
   getAllArticles: (request, response) => {
     models.Article.findAll({
       attributes: ['id', 'title', 'content', 'author', 'image'],
     }).then((articles) => {
       response.status(201).json(articles);
     });
+  },
+  // Mettre à jour un article
+  updateArticle: (request, response) => {
+    const article = {
+      id: request.params.id,
+      title: request.body.title,
+      content: request.body.content,
+      author: request.body.author,
+      image: request.body.image,
+    };
+    models.Article.update(article, { where: { id: request.params.id } })
+      .then(() => {
+        response.status(201).json({
+          message: 'Votre article a été mis à jour avec succès ! ',
+        });
+      })
+      .catch(() => {
+        response.status(400).json({
+          error: "Votre article n'a pas pu être mis à jour. ❌",
+        });
+      });
+  },
+  // Effacer une commande
+  deleteArticle: (request, response) => {
+    models.Article.destroy({ where: { id: request.params.id } })
+      .then(() => {
+        response.status(201).json({
+          message: 'Votre article a été supprimé avec succès ! ',
+        });
+      })
+      .catch(() => {
+        response.status(400).json({
+          error: "Votre article n'a pas pu être supprimé. ❌",
+        });
+      });
   },
 };

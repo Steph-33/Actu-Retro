@@ -13,5 +13,19 @@ articleRouter.post('/articles', (request, response) => {
     articleController.addArticle(request, response, adminSession);
   });
 });
+articleRouter.put('/articles/:id', (request, response) => {
+  let adminSession = {};
+  adminController.getAdministratorSession(request, response, (adminInfos) => {
+    adminSession = adminInfos;
+    articleController.updateArticle(request, response, adminSession);
+  });
+});
+articleRouter.delete('/articles/:id', (request, response) => {
+  let adminSession = {};
+  adminController.getAdministratorSession(request, response, (adminInfos) => {
+    adminSession = adminInfos;
+    articleController.deleteArticle(request, response, adminSession);
+  });
+});
 
 module.exports = articleRouter;

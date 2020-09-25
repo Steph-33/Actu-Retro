@@ -5,14 +5,23 @@ nav {
 
 .box-session {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+
+.logo {
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+  background-color: #072050;
+  border-radius: 0.5rem;
+  width: 10%;
+  height: 10%;
 }
 
 .sign-out {
   margin-right: 2em;
+  margin-top: 0.2em;
   background-color: #072050;
   width: 3%;
   height: 3%;
   cursor: pointer;
-  float: right;
 }

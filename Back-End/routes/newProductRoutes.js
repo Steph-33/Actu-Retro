@@ -16,5 +16,19 @@ newProductRouter.post('/newproducts', (request, response) => {
     newProductController.addNewProduct(request, response, adminSession);
   });
 });
+newProductRouter.put('/newproducts/:id', (request, response) => {
+  let adminSession = {};
+  adminController.getAdministratorSession(request, response, (adminInfos) => {
+    adminSession = adminInfos;
+    newProductController.updateNewProduct(request, response, adminSession);
+  });
+});
+newProductRouter.delete('/newproducts/:id', (request, response) => {
+  let adminSession = {};
+  adminController.getAdministratorSession(request, response, (adminInfos) => {
+    adminSession = adminInfos;
+    newProductController.deleteNewProduct(request, response, adminSession);
+  });
+});
 
 module.exports = newProductRouter;

@@ -5,6 +5,7 @@ require('express-async-errors');
 const ConflictError = require('../utils/errors/conflict');
 
 module.exports = {
+  // Ajout d'une commande
   addOrder: async (request, response, userSession) => {
     const order = {
       date_of_order: request.body.date_of_order,
@@ -49,6 +50,7 @@ module.exports = {
       );
     }
   },
+  // Récupérer une commande par son Id
   getOrderById: (request, response, userSession) => {
     models.Order.findOne({
       attributes: ['id', 'date_of_order', 'total_price', 'user_id'],
@@ -68,6 +70,7 @@ module.exports = {
         });
       });
   },
+  // Mettre à jour une commande
   updateOrder: (request, response, userSession) => {
     const order = {
       id: request.params.id,
@@ -87,6 +90,7 @@ module.exports = {
         });
       });
   },
+  // Effacer une commande
   deleteOrder: (request, response, userSession) => {
     models.Order.destroy({ where: { user_id: userSession.id } })
       .then(() => {

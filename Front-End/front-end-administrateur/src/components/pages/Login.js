@@ -63,7 +63,7 @@ export default function Login() {
           onChange={handleChange}
           required
         />
-        <button className="form-login button" type="submit">
+        <button className="form-login-button" type="submit">
           Connexion
         </button>
       </form>

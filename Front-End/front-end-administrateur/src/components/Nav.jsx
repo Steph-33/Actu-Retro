@@ -36,6 +36,11 @@ export default function Nav() {
           {firstname ? (
             <div className="box-session">
               <img
+                className="logo"
+                src="/assets/images/logo_acturetro_rectangle.png"
+                alt="logo"
+              />
+              <img
                 onClick={logout}
                 className="sign-out"
                 src="/assets/images/deconnexion.png"

@@ -5,6 +5,7 @@ require('express-async-errors');
 const ConflictError = require('../utils/errors/conflict');
 
 module.exports = {
+  // Ajouter un nouveau produit
   addNewProduct: async (request, response) => {
     const newProduct = {
       name: request.body.name,
@@ -56,6 +57,7 @@ module.exports = {
       );
     }
   },
+  // Récupérer un nouveau produit par son Id
   getNewProductById: (request, response) => {
     models.NewProduct.findOne({
       attributes: ['id', 'name', 'description', 'price', 'quantity', 'picture'],
@@ -77,11 +79,48 @@ module.exports = {
         });
       });
   },
+  //Récupérer tous les nouveaux produits
   getAllNewProducts: (request, response) => {
     models.NewProduct.findAll({
       attributes: ['id', 'name', 'description', 'price', 'quantity', 'picture'],
     }).then((newProducts) => {
       response.status(201).json(newProducts);
     });
+  },
+  // Mettre à jour un nouveau produit
+  updateNewProduct: (request, response, userSession) => {
+    const newProduct = {
+      id: request.params.id,
+      name: request.body.name,
+      description: request.body.description,
+      price: request.body.price,
+      quantity: request.body.quantity,
+      picture: request.body.picture,
+    };
+    models.NewProduct.update(newProduct, { where: { id: request.params.id } })
+      .then(() => {
+        response.status(201).json({
+          message: 'Votre produit a été modifié avec succès ! ',
+        });
+      })
+      .catch(() => {
+        response.status(400).json({
+          error: "Votre produit n'a pas pu être modifié. ❌",
+        });
+      });
+  },
+  // Effacer un nouveau produit
+  deleteNewProduct: (request, response) => {
+    models.NewProduct.destroy({ where: { id: request.params.id } })
+      .then(() => {
+        response.status(201).json({
+          message: 'Votre produit a été supprimé avec succès ! ',
+        });
+      })
+      .catch(() => {
+        response.status(400).json({
+          error: "Votre produit n'a pas pu être supprimé. ❌",
+        });
+      });
   },
 };
