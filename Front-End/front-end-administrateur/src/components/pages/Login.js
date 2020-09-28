@@ -1,12 +1,18 @@
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import AuthContext from '../AuthContext';
 
 export default function Login() {
   const [login, setLogin] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
   const [toDashboard, setToDashboard] = useState(false);
+  const context = useContext(AuthContext);
+
+  useEffect(() => {
+    return () => {};
+  }, [context]);
 
   const handleChange = (event) => {
     setLogin({ ...login, [event.target.name]: event.target.value });
@@ -19,6 +25,7 @@ export default function Login() {
       .then((response) => {
         console.log(response);
         setLogin({ email: '', password: '' });
+        context.setIsAuthenticated(true);
         localStorage.setItem('token', response.data.token);
         localStorage.setItem(
           'firstname',

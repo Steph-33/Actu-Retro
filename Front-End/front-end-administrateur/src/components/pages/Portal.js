@@ -1,17 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Portal() {
   return (
     <div className="container-portal">
       <div className="box-buttons">
-        <a href="/article">
+        <Link to="/article">
           <button className="btn-style">Créer un article</button>
-        </a>
-        <a href="/newproduct">
+        </Link>
+        <Link to="/newproduct">
           <button className="btn-style">
             Mettre en ligne un nouveau produit
           </button>
-        </a>
+        </Link>
       </div>
     </div>
   );

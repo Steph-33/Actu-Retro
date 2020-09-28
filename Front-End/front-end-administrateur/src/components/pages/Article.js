@@ -26,7 +26,7 @@ export default function Article() {
     axios
       .post('http://localhost:8080/api/articles', article, config)
       .then((response) => {
-        console.log('response:', response);
+        console.log(response);
         setArticle({ title: '', content: '', author: '', image: '' });
         setToDashboard(true);
       })
