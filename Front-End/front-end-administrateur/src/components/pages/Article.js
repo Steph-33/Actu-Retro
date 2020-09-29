@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import React from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
@@ -55,7 +55,7 @@ export default function Article() {
           onChange={handleChange}
           required
         />
-        <input
+        <textarea
           className="input-article-content"
           type="text"
           name="content"
@@ -73,6 +73,15 @@ export default function Article() {
           onChange={handleChange}
           required
         />
+        <div>
+          <label for="profile_pic">Sélectionne une image </label>
+          <input
+            type="file"
+            id="profile_pic"
+            name="profile_pic"
+            accept=".jpg, .jpeg, .png"
+          />
+        </div>
         <input
           className="input-article"
           type="text"

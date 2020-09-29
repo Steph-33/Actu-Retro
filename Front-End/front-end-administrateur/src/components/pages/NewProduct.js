@@ -63,7 +63,7 @@ export default function NewProduct() {
           onChange={handleChange}
           required
         />
-        <input
+        <textarea
           className="input-newproduct-description"
           type="textarea"
           name="description"
@@ -90,6 +90,15 @@ export default function NewProduct() {
           onChange={handleChange}
           required
         />
+        <div>
+          <label for="profile_pic">Sélectionne une image </label>
+          <input
+            type="file"
+            id="profile_pic"
+            name="profile_pic"
+            accept=".jpg, .jpeg, .png"
+          />
+        </div>
         <input
           className="input-newproduct"
           type="text"

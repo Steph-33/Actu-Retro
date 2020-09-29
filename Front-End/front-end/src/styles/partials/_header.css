@@ -1,0 +1,35 @@
+nav {
+  display: flex;
+  background-color: white;
+  font-weight: bold;
+  margin-left: 2%;
+  margin-bottom: 1.5%;
+}
+
+.header-link {
+  margin-right: 5%;
+  text-decoration: none;
+  color: #072050;
+}
+
+.header-top {
+  background-color: #072050;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+
+.logo {
+  margin-top: 5%;
+  margin-left: 2%;
+  margin-bottom: 1.5%;
+}
+
+.catch-line {
+  color: #072050;
+  font-weight: bold;
+  margin-left: 2%;
+  margin-bottom: 1.5%;
+}

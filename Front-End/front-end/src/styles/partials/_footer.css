@@ -1,0 +1,29 @@
+.footer {
+  background-color: #072050;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-left {
+  color: white;
+  font-weight: bold;
+  margin-top: 5%;
+  margin-bottom: 2.5%;
+  margin-left: 2%;
+}
+
+.footer-right {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+  margin-right: 10%;
+}
+
+.footer-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 5%;
+}

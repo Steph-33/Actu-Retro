@@ -6,6 +6,7 @@ let router = require('./routes');
 let cors = require('cors');
 let morgan = require('morgan');
 const { notFoundHandler, errorLogger, errorHandler } = require('./middlewares');
+const path = require('path');
 
 // Instanciation du serveur
 let server = express();
@@ -25,6 +26,9 @@ server.get('/', (request, response) => {
   response.send("Bienvenue sur ActuRetro, toute l'actualité du retrogaming");
 });
 server.use('/api/', router);
+
+// Récuération des images depuis le dossier 'images'
+// server.use('/images', express.static(path.join(__dirname, 'images')));
 
 // server.use((request, response, next) => {
 //   response.setHeader(

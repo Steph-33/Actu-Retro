@@ -1,6 +1,7 @@
 const express = require('express');
 const articleController = require('../controllers/articleController');
 const adminController = require('../controllers/adminController');
+// const multer = require('../middlewares/multer-config');
 
 const articleRouter = express.Router();
 
