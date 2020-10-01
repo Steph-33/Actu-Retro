@@ -18,7 +18,7 @@ export default function HomeArticles() {
   }, [allArticles]);
 
   return (
-    <div class="container">
+    <div className="container">
       <div className="home-container-top">
         TOUTE L’ACTUALITÉ / LES DERNIÈRES NEWS
       </div>

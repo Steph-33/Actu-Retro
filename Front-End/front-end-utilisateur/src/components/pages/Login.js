@@ -1,8 +1,9 @@
 import { useState, useContext, useEffect } from 'react';
 import React from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import { Redirect, NavLink } from 'react-router-dom';
 import AuthContext from '../AuthContext';
+import Footer from '../Footer';
 
 export default function Login() {
   const [login, setLogin] = useState({ email: '', password: '' });
@@ -39,37 +40,46 @@ export default function Login() {
   };
 
   return (
-    <div
-      className="container-login"
-      method="POST"
-      action="/login"
-      onSubmit={handleSubmit}
-    >
-      {toDashboard ? <Redirect to="/" /> : null}
-      <h1>Bienvenue. Merci de vous identifier</h1>
-      <form className="form-login">
-        <input
-          className="input-login"
-          type="email"
-          name="email"
-          placeholder="Entrez votre email..."
-          value={login.email}
-          onChange={handleChange}
-          required
+    <>
+      <NavLink to="/">
+        <img
+          className="login-logo"
+          src="/assets/images/logo_acturetro_accueil.png"
+          alt="logo"
         />
-        <input
-          className="input-login"
-          type="password"
-          name="password"
-          placeholder="Mot de passe..."
-          value={login.password}
-          onChange={handleChange}
-          required
-        />
-        <button className="form-login-button" type="submit">
-          Connexion
-        </button>
-      </form>
-    </div>
+      </NavLink>
+      <div
+        className="container-login"
+        method="POST"
+        action="/login"
+        onSubmit={handleSubmit}
+      >
+        {toDashboard ? <Redirect to="/" /> : null}
+        <h1>Bienvenue. Merci de vous identifier</h1>
+        <form className="form-login">
+          <input
+            className="input-login"
+            type="email"
+            name="email"
+            placeholder="Entrez votre email..."
+            value={login.email}
+            onChange={handleChange}
+            required
+          />
+          <input
+            className="input-login"
+            type="password"
+            name="password"
+            placeholder="Mot de passe..."
+            value={login.password}
+            onChange={handleChange}
+            required
+          />
+          <button className="form-login-button" type="submit">
+            Connexion
+          </button>
+        </form>
+      </div>
+    </>
   );
 }

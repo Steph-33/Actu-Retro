@@ -11,4 +11,6 @@
 
 .home-container {
   background-color: #d3a55a;
+  display: flex;
+  overflow-x: scroll;
 }

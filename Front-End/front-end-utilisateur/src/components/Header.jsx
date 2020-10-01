@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
+import UserCard from './UserCard';
 
 export default function Header() {
   return (
@@ -9,7 +10,7 @@ export default function Header() {
       </div>
       <NavLink to="/">
         <img
-          className="logo"
+          className="header-logo"
           src="/assets/images/logo_acturetro_accueil.png"
           alt="logo"
         />
@@ -21,9 +22,7 @@ export default function Header() {
         </Link>
         <Link className="header-link">ACTURETRO C'EST QUOI ? </Link>
         <Link className="header-link">ACTURETRO C'EST QUI ? </Link>
-        <Link className="header-link" to="/register">
-          UTILISATEUR
-        </Link>
+        <UserCard />
         <Link className="header-link">CONTACT</Link>
       </nav>
     </>

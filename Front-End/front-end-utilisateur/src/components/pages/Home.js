@@ -6,6 +6,8 @@ import AuthContext from '../AuthContext';
 import Header from '../Header';
 import Slider from '../Slider';
 import HomeArticle from '../HomeArticles';
+import HomeNewProduct from '../HomeNewProducts';
+import HomeUsedProduct from '../HomeUsedProducts';
 import Footer from '../Footer';
 
 export default function Home() {
@@ -17,6 +19,8 @@ export default function Home() {
       <Header />
       <Slider />
       <HomeArticle />
+      <HomeNewProduct />
+      <HomeUsedProduct />
       <Footer />
     </>
   );

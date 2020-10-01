@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function ArticleCard({ article }) {
   return (
     <div className="box-article">
-      <a href={`/articles/${article.id}`}>
-        <img src={article.image} alt="article" />
+      <Link to={`/articles/${article.id}`} style={{ textDecoration: 'none' }}>
+        <img className="article-image" src={article.image} alt="article" />
         <div className="article-title">{article.title}</div>
-      </a>
+      </Link>
     </div>
   );
 }

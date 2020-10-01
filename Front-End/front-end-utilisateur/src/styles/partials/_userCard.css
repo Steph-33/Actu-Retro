@@ -1,0 +1,17 @@
+.dropdown-menu {
+  margin-right: 5rem;
+  color: #072050;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-choice {
+  color: #072050;
+}
+
+:hover.menu-choice {
+  color: #d3a55a;
+}
