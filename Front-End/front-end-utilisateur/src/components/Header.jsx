@@ -5,7 +5,7 @@ export default function Header() {
   return (
     <>
       <div className="header-top">
-        L’ACTUALITE, LES PRODUITS NEUFS OU D’OCCASION, FAITES VOTRE CHOIX !
+        L’ACTUALITÉ, LES PRODUITS NEUFS OU D’OCCASION, FAITES VOTRE CHOIX !
       </div>
       <NavLink to="/">
         <img

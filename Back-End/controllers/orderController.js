@@ -9,6 +9,7 @@ module.exports = {
   addOrder: async (request, response, userSession) => {
     const order = {
       date_of_order: request.body.date_of_order,
+      products: request.body.products,
       total_price: request.body.total_price,
       user_id: userSession.id,
     };
@@ -19,35 +20,34 @@ module.exports = {
         });
       }
     }
-    const orderFound = await models.Order.findOne({
-      attributes: ['id'],
-      where: { id: order.user_id },
+    const orderCreated = await models.Order.create({
+      date_of_order: request.body.date_of_order,
+      total_price: request.body.total_price,
+      user_id: userSession.id,
     });
-    if (!orderFound) {
-      const order = await models.Order.create({
-        date_of_order: request.body.date_of_order,
-        total_price: request.body.total_price,
-        user_id: userSession.id,
-      });
-      if (order) {
-        return response.status(201).json({
-          id: order.id,
-          date_of_order: order.date_of_order,
-          total_price: order.total_price,
-        });
-      } else {
-        return response.status(401).json({
-          error: "Impossible d'ajouter une commande. ❌",
-        });
-      }
+    const productsToAdd = order.products.map((product) => {
+      return {
+        order_id: orderCreated.id,
+        new_product_id: product.id,
+        quantity: product.quantity,
+      };
+    });
+    await models.OrderNewProduct.bulkCreate(productsToAdd);
+    const newOrder = await models.Order.findByPk(orderCreated.id, {
+      include: [
+        {
+          model: models.NewProduct,
+          as: 'products',
+          through: { attributes: [] },
+        },
+      ],
+    });
+    if (orderCreated) {
+      return response.status(201).json(newOrder);
     } else {
-      return response.status(400).json({
-        error: 'Une commande existe déjà pour cet utilisateur. ❌',
+      return response.status(401).json({
+        error: "Impossible d'ajouter une commande. ❌",
       });
-      throw new ConflictError(
-        'Mauvaise Requête',
-        'Un panier existe déjà avec un id identique. ❌'
-      );
     }
   },
   // Récupérer une commande par son Id

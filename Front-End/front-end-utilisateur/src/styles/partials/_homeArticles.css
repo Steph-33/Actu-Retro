@@ -1,0 +1,14 @@
+.home-container-top {
+  background-color: #072050;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+  font-size: x-large;
+  padding-left: 2%;
+  padding-top: 1vh;
+  padding-bottom: 1vh;
+}
+
+.home-container {
+  background-color: #d3a55a;
+}

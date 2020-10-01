@@ -11,13 +11,14 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       models.Order.belongsTo(models.User, {
         foreignKey: {
-          allowNull: true,
+          allowNull: false,
           name: 'user_id',
         },
       });
       models.Order.belongsToMany(models.NewProduct, {
         through: 'OrderNewProducts',
         foreignKey: 'order_id',
+        as: 'products',
       });
     }
   }
