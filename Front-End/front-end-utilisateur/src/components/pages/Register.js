@@ -3,6 +3,9 @@ import axios from 'axios';
 import { Redirect, NavLink } from 'react-router-dom';
 
 export default function Register() {
+  useEffect(() => {
+    document.title = 'ActuRetro | Enregistrement';
+  });
   const [signup, setSignup] = useState({
     lastname: '',
     firstname: '',

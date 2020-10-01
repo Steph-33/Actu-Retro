@@ -3,9 +3,11 @@ import React from 'react';
 import axios from 'axios';
 import { Redirect, NavLink } from 'react-router-dom';
 import AuthContext from '../AuthContext';
-import Footer from '../Footer';
 
 export default function Login() {
+  useEffect(() => {
+    document.title = 'ActuRetro | Connexion';
+  });
   const [login, setLogin] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
   const [toDashboard, setToDashboard] = useState(false);
