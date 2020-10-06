@@ -15,7 +15,7 @@ export default function HomeArticles() {
       }
     };
     getArticles();
-  }, [allArticles]);
+  }, []);
 
   return (
     <div className="container">

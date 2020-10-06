@@ -10,7 +10,7 @@ export default function NewProductCard({ newProduct }) {
       >
         <img
           className="newproduct-image"
-          src={newProduct.picture}
+          src={newProduct.image}
           alt="newProduct"
         />
         <div className="newproduct-name">{newProduct.name}</div>

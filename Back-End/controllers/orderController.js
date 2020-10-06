@@ -70,26 +70,6 @@ module.exports = {
         });
       });
   },
-  // Mettre à jour une commande
-  updateOrder: (request, response, userSession) => {
-    const order = {
-      id: request.params.id,
-      date_of_order: request.body.date_of_order,
-      total_price: request.body.total_price,
-      user_id: userSession.id,
-    };
-    models.Order.update(order, { where: { id: request.params.id } })
-      .then(() => {
-        response.status(201).json({
-          message: 'Votre commande a été mise à jour avec succès ! ',
-        });
-      })
-      .catch(() => {
-        response.status(400).json({
-          error: "Votre commande n'a pas pu être mise à jour. ❌",
-        });
-      });
-  },
   // Effacer une commande
   deleteOrder: (request, response, userSession) => {
     models.Order.destroy({ where: { user_id: userSession.id } })

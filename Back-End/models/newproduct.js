@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       description: DataTypes.TEXT,
       price: DataTypes.FLOAT,
       quantity: DataTypes.INTEGER,
-      picture: DataTypes.TEXT,
+      image: DataTypes.TEXT,
     },
     {
       sequelize,

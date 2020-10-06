@@ -10,7 +10,7 @@ export default function UsedProductCard({ usedProduct }) {
       >
         <img
           className="usedproduct-image"
-          src={usedProduct.picture}
+          src={usedProduct.image}
           alt="usedProduct"
         />
         <div className="usedproduct-name">{usedProduct.name}</div>

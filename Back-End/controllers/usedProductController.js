@@ -13,7 +13,9 @@ module.exports = {
       state: request.body.state,
       description: request.body.description,
       price: request.body.price,
-      picture: request.body.picture,
+      image: `${request.protocol}://${request.get('host')}/images/${
+        request.file.filename
+      }`,
       location: request.body.location,
       contact: request.body.contact,
       user_id: userSession.id,
@@ -36,7 +38,9 @@ module.exports = {
         state: request.body.state,
         description: request.body.description,
         price: request.body.price,
-        picture: request.body.picture,
+        image: `${request.protocol}://${request.get('host')}/images/${
+          request.file.filename
+        }`,
         location: request.body.location,
         contact: request.body.contact,
         user_id: userSession.id,
@@ -73,7 +77,7 @@ module.exports = {
         'name',
         'description',
         'price',
-        'picture',
+        'image',
         'contact',
         'user_id',
       ],
@@ -85,7 +89,7 @@ module.exports = {
           name: usedProductFound.name,
           description: usedProductFound.description,
           price: usedProductFound.price,
-          picture: usedProductFound.picture,
+          image: usedProductFound.image,
           contact: usedProductFound.contact,
           user_id: usedProductFound.user_id,
         });
@@ -103,7 +107,7 @@ module.exports = {
         'name',
         'description',
         'price',
-        'picture',
+        'image',
         'contact',
         'user_id',
       ],

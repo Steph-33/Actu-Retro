@@ -27,8 +27,8 @@ server.get('/', (request, response) => {
 });
 server.use('/api/', router);
 
-// Récuération des images depuis le dossier 'images'
-// server.use('/images', express.static(path.join(__dirname, 'images')));
+// Récupération des images depuis le dossier 'images'
+server.use('/images', express.static((__dirname, 'images')));
 
 // server.use((request, response, next) => {
 //   response.setHeader(

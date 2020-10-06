@@ -7,15 +7,14 @@ const ConflictError = require('../utils/errors/conflict');
 module.exports = {
   // Ajouter un article
   addArticle: async (request, response) => {
-    console.log(request.body);
-    // const imageObject = JSON.parse(request.body.image);
     const article = {
       title: request.body.title,
       content: request.body.content,
       author: request.body.author,
-      image: request.body.image,
+      image: `${request.protocol}://${request.get('host')}/images/${
+        request.file.filename
+      }`,
     };
-
     for (const key in article) {
       if (article[key] == null) {
         return response.status(400).json({
@@ -32,7 +31,9 @@ module.exports = {
         title: request.body.title,
         content: request.body.content,
         author: request.body.author,
-        image: request.body.image,
+        image: `${request.protocol}://${request.get('host')}/images/${
+          request.file.filename
+        }`,
       });
       if (newArticle) {
         return response.status(201).json({
@@ -93,7 +94,9 @@ module.exports = {
       title: request.body.title,
       content: request.body.content,
       author: request.body.author,
-      image: request.body.image,
+      image: `${request.protocol}://${request.get('host')}/images/${
+        request.file.filename
+      }`,
     };
     models.Article.update(article, { where: { id: request.params.id } })
       .then(() => {
@@ -107,7 +110,7 @@ module.exports = {
         });
       });
   },
-  // Effacer une commande
+  // Effacer un article
   deleteArticle: (request, response) => {
     models.Article.destroy({ where: { id: request.params.id } })
       .then(() => {

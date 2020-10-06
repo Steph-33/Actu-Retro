@@ -21,7 +21,7 @@ module.exports = {
       quantity: {
         type: Sequelize.INTEGER,
       },
-      picture: {
+      image: {
         type: Sequelize.TEXT,
       },
       createdAt: {

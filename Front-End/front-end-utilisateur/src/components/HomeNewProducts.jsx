@@ -18,7 +18,7 @@ export default function HomeNewProducts() {
       }
     };
     getNewProducts();
-  }, [allNewProducts]);
+  }, []);
 
   return (
     <div className="container">

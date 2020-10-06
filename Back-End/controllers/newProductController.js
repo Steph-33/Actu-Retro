@@ -12,7 +12,9 @@ module.exports = {
       description: request.body.description,
       price: request.body.price,
       quantity: request.body.quantity,
-      picture: request.body.picture,
+      image: `${request.protocol}://${request.get('host')}/images/${
+        request.file.filename
+      }`,
     };
     for (const key in newProduct) {
       if (newProduct[key] == null) {
@@ -31,7 +33,9 @@ module.exports = {
         description: request.body.description,
         price: request.body.price,
         quantity: request.body.quantity,
-        picture: request.body.picture,
+        image: `${request.protocol}://${request.get('host')}/images/${
+          request.file.filename
+        }`,
       });
       if (newProduct) {
         return response.status(201).json({
@@ -40,7 +44,7 @@ module.exports = {
           description: newProduct.description,
           price: newProduct.price,
           quantity: newProduct.quantity,
-          picture: newProduct.picture,
+          image: newProduct.image,
         });
       } else {
         return response.status(401).json({
@@ -60,7 +64,7 @@ module.exports = {
   // Récupérer un nouveau produit par son Id
   getNewProductById: (request, response) => {
     models.NewProduct.findOne({
-      attributes: ['id', 'name', 'description', 'price', 'quantity', 'picture'],
+      attributes: ['id', 'name', 'description', 'price', 'quantity', 'image'],
       where: { id: request.params.id },
     })
       .then((newProductFound) => {
@@ -70,7 +74,7 @@ module.exports = {
           description: newProductFound.description,
           price: newProductFound.price,
           quantity: newProductFound.quantity,
-          picture: newProductFound.picture,
+          image: newProductFound.image,
         });
       })
       .catch(() => {
@@ -82,7 +86,7 @@ module.exports = {
   //Récupérer tous les nouveaux produits
   getAllNewProducts: (request, response) => {
     models.NewProduct.findAll({
-      attributes: ['id', 'name', 'description', 'price', 'quantity', 'picture'],
+      attributes: ['id', 'name', 'description', 'price', 'quantity', 'image'],
     }).then((newProducts) => {
       response.status(201).json(newProducts);
     });
@@ -95,7 +99,9 @@ module.exports = {
       description: request.body.description,
       price: request.body.price,
       quantity: request.body.quantity,
-      picture: request.body.picture,
+      image: `${request.protocol}://${request.get('host')}/images/${
+        request.file.filename
+      }`,
     };
     models.NewProduct.update(newProduct, { where: { id: request.params.id } })
       .then(() => {

@@ -18,7 +18,13 @@ export default function Article() {
     headers: { Authorization: `Bearer ${token}` },
   };
   const handleChange = (event) => {
+    console.log('event.target =========>', event.target);
     setArticle({ ...article, [event.target.name]: event.target.value });
+  };
+
+  const handleFile = (event) => {
+    setArticle({ ...article, [event.target.name]: event.target.value });
+    console.log(event.target.files);
   };
 
   const handleSubmit = (e) => {
@@ -26,7 +32,7 @@ export default function Article() {
     axios
       .post('http://localhost:8080/api/articles', article, config)
       .then((response) => {
-        console.log(response);
+        console.log('article-response ===========>', response);
         setArticle({ title: '', content: '', author: '', image: '' });
         setToDashboard(true);
       })
@@ -45,7 +51,7 @@ export default function Article() {
     >
       {toDashboard ? <Redirect to="/portal" /> : null}
       <h1>Bienvenue {firstname}</h1>
-      <form className="form-article">
+      <form className="form-article" encType="multipart/form-data">
         <input
           className="input-article"
           type="text"
@@ -74,15 +80,18 @@ export default function Article() {
           required
         />
         <div>
-          <label for="profile_pic">Sélectionne une image </label>
+          <label htmlFor="image">Sélectionne une image </label>
           <input
             type="file"
-            id="profile_pic"
-            name="profile_pic"
+            id="image"
+            name="image"
             accept=".jpg, .jpeg, .png"
+            value={article.image}
+            onChange={handleFile}
+            required
           />
         </div>
-        <input
+        {/* <input
           className="input-article"
           type="text"
           name="image"
@@ -90,7 +99,7 @@ export default function Article() {
           value={article.image}
           onChange={handleChange}
           required
-        />
+        /> */}
         <button className="form-article-button" type="submit">
           Valider
         </button>

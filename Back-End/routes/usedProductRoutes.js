@@ -1,6 +1,7 @@
 const express = require('express');
 const usedProductController = require('../controllers/usedProductController');
 const userController = require('../controllers/userController');
+const multer = require('../middlewares/multer-config');
 
 const usedProductRouter = express.Router();
 
@@ -12,7 +13,7 @@ usedProductRouter.get(
   '/usedproducts',
   usedProductController.getAllUsedProducts
 );
-usedProductRouter.post('/usedproducts', (request, response) => {
+usedProductRouter.post('/usedproducts', multer, (request, response) => {
   let userSession = {};
   userController.getUserSession(request, response, (userInfos) => {
     userSession = userInfos;

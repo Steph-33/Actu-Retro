@@ -18,7 +18,7 @@ export default function HomeUsedProducts() {
       }
     };
     getUsedProducts();
-  }, [allUsedProducts]);
+  }, []);
 
   return (
     <div className="container">
