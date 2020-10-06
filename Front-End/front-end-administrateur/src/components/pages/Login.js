@@ -23,7 +23,6 @@ export default function Login() {
     axios
       .post('http://localhost:8080/api/admin/login', login)
       .then((response) => {
-        console.log(response);
         setLogin({ email: '', password: '' });
         context.setIsAuthenticated(true);
         localStorage.setItem('token', response.data.token);

@@ -7,6 +7,7 @@ const ConflictError = require('../utils/errors/conflict');
 module.exports = {
   // Ajouter un article
   addArticle: async (request, response) => {
+    console.log(request.file);
     const article = {
       title: request.body.title,
       content: request.body.content,

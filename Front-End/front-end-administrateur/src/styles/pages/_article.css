@@ -41,6 +41,17 @@
   font-size: 0.9em;
 }
 
+.image-selection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-image {
+  height: 10%;
+  width: 10%;
+}
+
 .form-article-button {
   margin: 0.6em;
   height: 2rem;

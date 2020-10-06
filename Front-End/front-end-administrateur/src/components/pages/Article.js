@@ -1,46 +1,63 @@
-import { Fragment, useState } from 'react';
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
+import FormData from 'form-data';
 
 export default function Article() {
+  const history = useHistory();
   const [article, setArticle] = useState({
     title: '',
     content: '',
     author: '',
     image: '',
   });
-  const [error, setError] = useState(null);
-  const [toDashboard, setToDashboard] = useState(false);
-  const token = localStorage.token;
+  const [image, setImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState(
+    'http://localhost:8080/images/image-neutre.png'
+  );
+  const token = localStorage.getItem('token');
   const firstname = localStorage.firstname;
-  const config = {
-    headers: { Authorization: `Bearer ${token}` },
-  };
   const handleChange = (event) => {
-    console.log('event.target =========>', event.target);
     setArticle({ ...article, [event.target.name]: event.target.value });
   };
 
   const handleFile = (event) => {
-    setArticle({ ...article, [event.target.name]: event.target.value });
-    console.log(event.target.files);
+    const [filename] = event.target.files;
+    try {
+      setImage({ image: filename });
+      setPreviewImage(URL.createObjectURL(filename));
+    } catch (error) {
+      console.log(error);
+    }
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post('http://localhost:8080/api/articles', article, config)
-      .then((response) => {
-        console.log('article-response ===========>', response);
-        setArticle({ title: '', content: '', author: '', image: '' });
-        setToDashboard(true);
+
+    var data = new FormData();
+
+    data.append('image', image.image);
+    data.append('title', article.title);
+    data.append('content', article.content);
+    data.append('author', article.author);
+
+    var config = {
+      method: 'post',
+      url: 'http://localhost:8080/api/articles',
+      headers: {
+        'Content-type': 'multipart/form-data',
+        Authorization: `Bearer ${token}`,
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        history.push('/portal');
+        console.log(JSON.stringify(response.data));
       })
-      .catch((error) => {
-        console.log(error.response.data);
-        setError(error.response.data);
+      .catch(function (error) {
+        console.log(error);
       });
-    console.log(error);
   };
   return (
     <div
@@ -49,7 +66,6 @@ export default function Article() {
       action="/article"
       onSubmit={handleSubmit}
     >
-      {toDashboard ? <Redirect to="/portal" /> : null}
       <h1>Bienvenue {firstname}</h1>
       <form className="form-article" encType="multipart/form-data">
         <input
@@ -79,27 +95,26 @@ export default function Article() {
           onChange={handleChange}
           required
         />
-        <div>
-          <label htmlFor="image">Sélectionne une image </label>
-          <input
-            type="file"
-            id="image"
-            name="image"
-            accept=".jpg, .jpeg, .png"
-            value={article.image}
-            onChange={handleFile}
-            required
+        <div className="image-selection">
+          <div>
+            <label htmlFor="image">Sélectionne une image </label>
+            <input
+              type="file"
+              id="image"
+              name="image"
+              accept=".jpg, .jpeg, .png"
+              onChange={handleFile}
+              required
+            />
+          </div>
+          {/* <div> */}
+          <img
+            className="preview-image"
+            src={previewImage}
+            alt="Image de Prévisualisation"
           />
+          {/* </div> */}
         </div>
-        {/* <input
-          className="input-article"
-          type="text"
-          name="image"
-          placeholder="Lien vers l'image"
-          value={article.image}
-          onChange={handleChange}
-          required
-        /> */}
         <button className="form-article-button" type="submit">
           Valider
         </button>
