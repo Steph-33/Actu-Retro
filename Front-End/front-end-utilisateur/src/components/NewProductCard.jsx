@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function NewProductCard({ newProduct }) {
   return (
-    <div className="box-newProduct">
+    <div className="box-newproduct">
       <Link
         to={`/newproducts/${newProduct.id}`}
         style={{ textDecoration: 'none' }}

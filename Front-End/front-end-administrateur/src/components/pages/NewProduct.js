@@ -1,47 +1,66 @@
-import { useState } from 'react';
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 export default function NewProduct() {
+  const history = useHistory();
   const [newProduct, setNewProduct] = useState({
     name: '',
     description: '',
     price: '',
     quantity: '',
-    picture: '',
+    image: '',
   });
-  const [error, setError] = useState(null);
-  const [toDashboard, setToDashboard] = useState(false);
-  const token = localStorage.token;
+
+  const [image, setImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState(
+    'http://localhost:8080/images/image-neutre.png'
+  );
+  const token = localStorage.getItem('token');
   const firstname = localStorage.firstname;
-  const config = {
-    headers: { Authorization: `Bearer ${token}` },
-  };
   const handleChange = (event) => {
     setNewProduct({ ...newProduct, [event.target.name]: event.target.value });
   };
 
+  const handleFile = (event) => {
+    const [filename] = event.target.files;
+    try {
+      setImage({ image: filename });
+      setPreviewImage(URL.createObjectURL(filename));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post('http://localhost:8080/api/newproducts', newProduct, config)
-      .then((response) => {
-        console.log('response:', response);
-        setNewProduct({
-          name: '',
-          description: '',
-          price: '',
-          quantity: '',
-          picture: '',
-        });
-        setToDashboard(true);
+
+    var data = new FormData();
+
+    data.append('image', image.image);
+    data.append('name', newProduct.name);
+    data.append('description', newProduct.description);
+    data.append('price', newProduct.price);
+    data.append('quantity', newProduct.quantity);
+
+    var config = {
+      method: 'post',
+      url: 'http://localhost:8080/api/newproducts',
+      headers: {
+        'Content-type': 'multipart/form-data',
+        Authorization: `Bearer ${token}`,
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        history.push('/portal');
+        console.log(JSON.stringify(response.data));
       })
-      .catch((error) => {
-        console.log(error.response.data);
-        setError(error.response.data);
+      .catch(function (error) {
+        console.log(error);
       });
-    console.log(error);
   };
 
   return (
@@ -51,9 +70,8 @@ export default function NewProduct() {
       action="/newproduct"
       onSubmit={handleSubmit}
     >
-      {toDashboard ? <Redirect to="/portal" /> : null}
       <h1>Bienvenue {firstname}</h1>
-      <form className="form-newproduct">
+      <form className="form-newproduct" encType="multipart/form-data">
         <input
           className="input-newproduct"
           type="text"
@@ -90,24 +108,24 @@ export default function NewProduct() {
           onChange={handleChange}
           required
         />
-        <div>
-          <label for="profile_pic">Sélectionne une image </label>
-          <input
-            type="file"
-            id="profile_pic"
-            name="profile_pic"
-            accept=".jpg, .jpeg, .png"
+        <div className="image-selection">
+          <div>
+            <label htmlFor="image">Sélectionne une photo </label>
+            <input
+              type="file"
+              id="image"
+              name="image"
+              accept=".jpg, .jpeg, .png"
+              onChange={handleFile}
+              required
+            />
+          </div>
+          <img
+            className="preview-image"
+            src={previewImage}
+            alt="Image de Prévisualisation"
           />
         </div>
-        <input
-          className="input-newproduct"
-          type="text"
-          name="picture"
-          placeholder="Photo du produit"
-          value={newProduct.picture}
-          onChange={handleChange}
-          required
-        />
         <button className="form-newproduct-button" type="submit">
           Valider
         </button>

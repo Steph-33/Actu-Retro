@@ -1,0 +1,56 @@
+.articles-container {
+  min-height: 100vh;
+  color: white;
+  background-color: #072050;
+  font-weight: bold;
+}
+
+.article-container {
+  display: flex;
+  width: 80vw;
+  padding-top: 2em;
+  margin-left: 11em;
+}
+
+.introduction-sentence {
+  margin-top: auto;
+  text-align: center;
+  background-color: #072050;
+}
+
+.article-title {
+  width: 50vw;
+}
+
+.article-container-buttons {
+  width: 30vw;
+  display: flex;
+}
+
+.article-modify-button {
+  margin-right: 2vw;
+  height: 2rem;
+  width: 10vw;
+  border-radius: 0.5rem;
+  outline: none;
+  background-color: green;
+  color: white;
+  font-size: 0.8em;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}
+
+.article-delete-button {
+  margin-right: 1%;
+  height: 2rem;
+  width: 10vw;
+  border-radius: 0.5rem;
+  outline: none;
+  background-color: red;
+  color: white;
+  font-size: 0.8em;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+}

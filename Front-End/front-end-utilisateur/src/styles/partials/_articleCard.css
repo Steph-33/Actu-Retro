@@ -1,20 +1,28 @@
+.box-article {
+  box-shadow: 10px 5px 20px grey;
+  margin-top: 2rem;
+  width: 25%;
+  height: 50vh;
+}
+
 .article-image {
+  background-size: cover;
+  width: 20vw;
+  height: 30vh;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
   margin-left: 1.5rem;
   margin-right: 1rem;
-  width: 30rem;
-  height: 18rem;
 }
 
 .article-title {
   text-decoration: none;
-  color: white;
+  color: #072050;
   font-weight: bold;
   font-size: larger;
   text-align: center;
   margin-left: 1.5rem;
   margin-right: 1rem;
-  width: 30rem;
-  margin-bottom: 1rem;
+  width: 20vw;
+  height: 20vh;
 }

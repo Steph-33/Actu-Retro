@@ -5,15 +5,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
+.box-buttons {
+  display: flex;
+}
+
+.article-buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+}
+
+.newproduct-buttons {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2em;
+  margin-top: 2em;
+}
+
 .btn-style {
   margin: 0.6em;
+  /* margin-left: 2em; */
   height: 2rem;
-  width: 80%;
+  width: 100%;
   border-radius: 0.5rem;
   outline: none;
   background-color: #d3a55a;

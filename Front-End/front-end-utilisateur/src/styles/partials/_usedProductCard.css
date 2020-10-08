@@ -1,3 +1,10 @@
+.box-usedproduct {
+  box-shadow: 10px 5px 20px grey;
+  margin-bottom: 0.5em;
+  margin-top: 2rem;
+  width: 25%;
+  height: 50vh;
+}
 .container-top-label {
   background-color: #072050;
   display: flex;
@@ -17,14 +24,17 @@
 }
 
 .usedproduct-image {
+  background-size: cover;
+  width: 20vw;
+  height: 30vh;
   margin-top: 1.5rem;
   margin-left: 1.5rem;
   margin-right: 1rem;
-  width: 20rem;
-  height: 18rem;
 }
 
 .usedproduct-name {
+  margin-top: -1vh;
+  padding-top: 5vh;
   text-decoration: none;
   color: black;
   background-color: white;
@@ -34,7 +44,7 @@
   padding-left: 2%;
   margin-left: 1.5rem;
   margin-right: 1rem;
-  width: 19.55rem;
+  width: 20vw;
 }
 .usedproduct-price {
   text-decoration: none;
@@ -46,6 +56,5 @@
   padding-left: 2%;
   margin-left: 1.5rem;
   margin-right: 1rem;
-  width: 19.55rem;
-  margin-bottom: 1rem;
+  width: 20vw;
 }

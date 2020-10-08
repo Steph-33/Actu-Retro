@@ -32,7 +32,7 @@ export default function HomeUsedProducts() {
           MARCHÉ DE L'OCCASION
         </Link>
       </div>
-      <div className="home-container">
+      <div className="home-container-used">
         {allUsedProducts.map((usedProduct, index) => (
           <UsedProductCard usedProduct={usedProduct} key={index} />
         ))}

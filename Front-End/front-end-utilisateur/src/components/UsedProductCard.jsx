@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function UsedProductCard({ usedProduct }) {
   return (
-    <div className="box-usedProduct">
+    <div className="box-usedproduct">
       <Link
         to={`/usedproducts/${usedProduct.id}`}
         style={{ textDecoration: 'none' }}

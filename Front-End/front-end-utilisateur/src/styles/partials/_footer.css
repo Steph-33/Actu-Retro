@@ -2,6 +2,7 @@
   background-color: #072050;
   display: flex;
   justify-content: space-between;
+  margin-top: 2rem;
 }
 
 .footer-left {

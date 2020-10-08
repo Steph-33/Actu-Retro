@@ -107,13 +107,11 @@ export default function Article() {
               required
             />
           </div>
-          {/* <div> */}
           <img
             className="preview-image"
             src={previewImage}
             alt="Image de Prévisualisation"
           />
-          {/* </div> */}
         </div>
         <button className="form-article-button" type="submit">
           Valider

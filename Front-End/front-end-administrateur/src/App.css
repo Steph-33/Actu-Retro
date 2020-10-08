@@ -1,5 +1,7 @@
 @import './styles/partials/_nav.css';
 @import './styles/pages/_login.css';
 @import './styles/pages/_article.css';
+@import './styles/pages/_articleslist.css';
 @import './styles/pages/_newproduct.css';
+@import './styles/pages/_newproductslist.css';
 @import './styles/pages/_portal.css';
