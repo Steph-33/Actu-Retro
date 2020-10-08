@@ -1,3 +1,30 @@
+.intro {
+  display: flex;
+  justify-content: space-between;
+}
+
+.registration-box {
+  width: 30vw;
+}
+
+.session-box {
+  display: flex;
+  color: #072050;
+  align-items: center;
+}
+
+.welcome-message {
+  padding-top: 3vh;
+  margin-left: 3vw;
+  margin-right: 2vw;
+}
+
+.quit-link {
+  padding-top: 3vh;
+  color: #d3a55a;
+  font-size: smaller;
+}
+
 nav {
   display: flex;
   background-color: white;
@@ -22,14 +49,14 @@ nav {
 }
 
 .header-logo {
-  margin-top: 5%;
-  margin-left: 2%;
-  margin-bottom: 1.5%;
+  margin-top: 5vh;
+  margin-left: 2vw;
+  margin-bottom: 2vh;
 }
 
 .catch-line {
   color: #072050;
   font-weight: bold;
-  margin-left: 2%;
-  margin-bottom: 1.5%;
+  margin-left: 2vw;
+  margin-bottom: 3vh;
 }

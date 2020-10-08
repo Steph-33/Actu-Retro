@@ -22,7 +22,9 @@ module.exports = {
       lastname: request.body.lastname,
       email: request.body.email,
       password: request.body.password,
-      avatar: request.body.avatar,
+      image: `${request.protocol}://${request.get('host')}/images/${
+        request.file.filename
+      }`,
     };
     const checkEmail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     const checkName = /\b([A-ZÀ-ÿ][-,a-z. ']+[ ]*)+/;
@@ -72,7 +74,7 @@ module.exports = {
           lastname: user.lastname,
           email: user.email,
           password: bcryptedPassword,
-          avatar: user.avatar,
+          image: user.image,
         });
         if (newUser) {
           return response.status(201).json({

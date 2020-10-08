@@ -1,47 +1,66 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Redirect, NavLink } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
+import FormData from 'form-data';
 
 export default function Register() {
   useEffect(() => {
     document.title = 'ActuRetro | Enregistrement';
   });
+  const history = useHistory();
   const [signup, setSignup] = useState({
     lastname: '',
     firstname: '',
     email: '',
     password: '',
-    avatar: '',
+    image: '',
   });
-  const [error, setError] = useState(null);
-  const [toDashboard, setToDashboard] = useState(false);
+  const [image, setImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState(
+    'http://localhost:8080/images/image-neutre.png'
+  );
 
   const handleChange = (event) => {
     setSignup({ ...signup, [event.target.name]: event.target.value });
   };
 
+  const handleFile = (event) => {
+    const [filename] = event.target.files;
+    try {
+      setImage({ image: filename });
+      setPreviewImage(URL.createObjectURL(filename));
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post('http://localhost:8080/api/user/register', signup)
-      .then((response) => {
-        console.log('#response', response);
-        setSignup({
-          lastname: '',
-          firstname: '',
-          email: '',
-          password: '',
-          avatar: '',
-        });
-        console.log('hello');
-        localStorage.setItem('firstname', signup.firstname);
-        localStorage.setItem('lastname', signup.lastname);
-        localStorage.setItem('avatar', signup.avatar);
-        setToDashboard(true);
-        console.log(localStorage.getItem('firstname'));
+
+    var data = new FormData();
+
+    data.append('firstname', signup.firstname);
+    data.append('lastname', signup.lastname);
+    data.append('email', signup.email);
+    data.append('password', signup.password);
+    data.append('image', image.image);
+
+    var config = {
+      method: 'post',
+      url: 'http://localhost:8080/api/user/register',
+      headers: {
+        'Content-type': 'multipart/form-data',
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        history.push('/');
+        console.log(JSON.stringify(response.data));
       })
-      .catch((error) => {
-        console.log('#error', error.response);
+      .catch(function (error) {
+        console.log(error);
       });
   };
 
@@ -49,23 +68,22 @@ export default function Register() {
     <>
       <NavLink to="/">
         <img
-          className="login-logo"
+          className="register-logo"
           src="/assets/images/logo_acturetro_accueil.png"
           alt="logo"
         />
       </NavLink>
       <div
-        className="container-login"
+        className="container-register"
         method="POST"
         action="/signup"
         onSubmit={handleSubmit}
       >
-        <form className="form-login">
-          {toDashboard ? <Redirect to="/" /> : null}
+        <form className="form-register">
           <h1 className="bienvenue">Bienvenue</h1>
           <h3>Merci de remplir les champs suivant pour créer votre compte</h3>
           <input
-            className="input-login"
+            className="input-register"
             type="text"
             name="lastname"
             placeholder="Nom"
@@ -74,7 +92,7 @@ export default function Register() {
             required
           />
           <input
-            className="input-login"
+            className="input-register"
             type="text"
             name="firstname"
             placeholder="Prénom"
@@ -83,7 +101,7 @@ export default function Register() {
             required
           />
           <input
-            className="input-login"
+            className="input-register"
             type="email"
             name="email"
             placeholder="Votre adresse e-mail"
@@ -91,7 +109,7 @@ export default function Register() {
             onChange={handleChange}
           />
           <input
-            className="input-login"
+            className="input-register"
             type="password"
             name="password"
             placeholder="Votre mot de passe"
@@ -99,16 +117,25 @@ export default function Register() {
             onChange={handleChange}
             required
           />
-          <input
-            className="input-login"
-            type="text"
-            name="avatar"
-            placeholder="https://votre_avatar_jpeg.com"
-            value={signup.avatar}
-            onChange={handleChange}
-            required
-          />
-          <button className="form-login-button" type="submit">
+          <div className="image-selection">
+            <div>
+              <label htmlFor="image">Sélectionnez une photo de profil </label>
+              <input
+                type="file"
+                id="image"
+                name="image"
+                accept=".jpg, .jpeg, .png"
+                onChange={handleFile}
+                required
+              />
+            </div>
+            <img
+              className="preview-image"
+              src={previewImage}
+              alt="Prévisualisation"
+            />
+          </div>
+          <button className="form-register-button" type="submit">
             Connexion
           </button>
         </form>

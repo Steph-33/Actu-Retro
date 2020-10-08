@@ -1,0 +1,20 @@
+.search-input {
+  height: 15vh;
+  background-color: #d3a55a;
+}
+
+.newproducts-body {
+  display: flex;
+  width: 80vw;
+}
+
+.newproducts-body-left {
+  width: 15vw;
+  background-color: #d3a55a;
+}
+
+.newproducts-body-right {
+  display: flex;
+  flex-wrap: wrap;
+  width: 65vw;
+}
