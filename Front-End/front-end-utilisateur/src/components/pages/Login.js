@@ -11,11 +11,11 @@ export default function Login() {
   const [login, setLogin] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
   const [toDashboard, setToDashboard] = useState(false);
-  const context = useContext(AuthContext);
+  const {state, dispatch} = useContext(AuthContext);
 
   useEffect(() => {
     return () => {};
-  }, [context]);
+  }, []);
 
   const handleChange = (event) => {
     setLogin({ ...login, [event.target.name]: event.target.value });
@@ -26,16 +26,17 @@ export default function Login() {
     axios
       .post('http://localhost:8080/api/user/login', login)
       .then((response) => {
-        console.log(response);
         setLogin({ email: '', password: '' });
-        context.setIsAuthenticated(true);
+        dispatch({
+          type: "LOGIN",
+          payload: response,
+        });
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('firstname', response.data.user.firstname);
         localStorage.setItem('lastname', response.data.user.lastname);
         setToDashboard(true);
       })
       .catch((error) => {
-        console.log(error.response.data);
         setError(error.response.data);
       });
     console.log(error);

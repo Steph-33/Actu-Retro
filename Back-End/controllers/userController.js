@@ -160,4 +160,7 @@ module.exports = {
       'Vous devez être connecté pour accéder à cette ressource ❌'
     );
   },
+  getUserById : (id) => {
+    return models.User.findByPk(id);
+  }
 };

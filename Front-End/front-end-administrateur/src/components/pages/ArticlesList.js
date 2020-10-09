@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 
 export default function ArticlesList() {
   const history = useHistory();
-  console.log('history ========> ', history);
   const token = localStorage.getItem('token');
   const [allArticles, setAllArticles] = useState([]);
 

@@ -1,7 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
-import axios from 'axios';
-import { Redirect } from 'react-router-dom';
-import AuthContext from '../AuthContext';
+import React, { useEffect } from 'react';
 import Header from '../Header';
 import Slider from '../Slider';
 import HomeArticle from '../HomeArticles';

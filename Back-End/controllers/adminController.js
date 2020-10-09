@@ -156,4 +156,7 @@ module.exports = {
       'Vous devez être connecté pour accéder à cette ressource ❌'
     );
   },
+  getAdministratorById : (id) => {
+    return models.Administrator.findByPk(id);
+  }
 };

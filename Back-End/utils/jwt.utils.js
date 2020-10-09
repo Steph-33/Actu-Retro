@@ -1,4 +1,7 @@
 const jwt = require('jsonwebtoken');
+require('express-async-errors');
+
+const BadRequest = require('../utils/errors/bad_request');
 
 const JWT_SIGN_SECRET = process.env.SESSION_SECRET;
 
@@ -71,5 +74,29 @@ module.exports = {
       }
     }
     return adminId;
+  },
+  authenticateJWT: (request, response, next) => {
+    const authHeader = request.headers.authorization;
+
+    if (authHeader) {
+      const token = authHeader.split(" ")[1];
+
+      jwt.verify(token, JWT_SIGN_SECRET, (error, user) => {
+        if (error) {
+          throw new UnauthorizedError(
+            "Accès refusé",
+            "Vous devez être connecté pour accéder à cette ressource."
+          );
+        }
+        request.user = user;
+
+        next();
+      });
+    } else {
+      throw new BadRequest(
+        "Mauvaise requête",
+        "le token n'as pas été fourni."
+      );
+    }
   },
 };

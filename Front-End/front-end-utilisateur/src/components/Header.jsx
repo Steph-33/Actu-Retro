@@ -1,18 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import UserCard from './UserCard';
+import AuthContext from './AuthContext'
 
 export default function Header() {
-  const [firstname, setFirstname] = useState(null);
   const [refresh, setRefresh] = useState(false);
-
-  const getUserSession = () => {
-    const firstname = localStorage.getItem('firstname');
-    setFirstname(firstname);
-  };
-
+  const {state} = useContext(AuthContext);
+  
   useEffect(() => {
-    getUserSession();
     setRefresh(true);
     if (refresh) {
       window.location = '/';
@@ -41,14 +36,14 @@ export default function Header() {
           <div className="catch-line">Toute l'actualité du Retrogaming</div>
         </NavLink>
         <div className="registration-box">
-          {firstname ? (
+          {state.user && (
             <div className="session-box">
-              <p className="welcome-message">Bienvenue {firstname} ! </p>
+              <p className="welcome-message">Bienvenue {state.user.firstname} ! </p>
               <Link className="quit-link" onClick={logout}>
                 Se déconnecter
               </Link>
             </div>
-          ) : null}
+          )}
         </div>
       </div>
       <nav>

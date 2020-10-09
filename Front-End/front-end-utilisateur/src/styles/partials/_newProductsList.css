@@ -5,7 +5,7 @@
 
 .newproducts-body {
   display: flex;
-  width: 80vw;
+  width: 95vw;
 }
 
 .newproducts-body-left {
@@ -16,5 +16,10 @@
 .newproducts-body-right {
   display: flex;
   flex-wrap: wrap;
-  width: 65vw;
+  width: 80vw;
+  margin-left: 5vw;
+}
+
+.newproducts-body-right-card {
+  margin-right: 2vw;
 }

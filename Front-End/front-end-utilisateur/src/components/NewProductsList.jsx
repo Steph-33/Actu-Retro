@@ -25,7 +25,9 @@ export default function NewProductsList() {
         <div className="newproducts-body-left"></div>
         <div className="newproducts-body-right">
           {allNewProducts.map((newProduct, index) => (
+            <div className="newproducts-body-right-card">
             <NewProductCard newProduct={newProduct} key={index} />
+            </div>
           ))}
         </div>
       </div>
