@@ -9,7 +9,7 @@ newProductRouter.get(
   '/newproducts/:id',
   newProductController.getNewProductById
 );
-newProductRouter.get('/newproducts', newProductController.getAllNewProducts);
+newProductRouter.get('/allnewproducts/:limit', newProductController.getAllNewProducts);
 newProductRouter.post('/newproducts', multer, (request, response) => {
   let adminSession = {};
   adminController.getAdministratorSession(request, response, (adminInfos) => {

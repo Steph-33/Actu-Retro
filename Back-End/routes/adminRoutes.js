@@ -6,7 +6,7 @@ const { OK } = require('../utils/status_codes')
 const adminRouter = express.Router();
 
 adminRouter.get('/admin/me/', jwtUtils.authenticateJWT, async (request, response) => {
-    const admin = await adminController.getAdministratorById(request.user.adminId);
+  const admin = await adminController.getAdministratorById(request.user.adminId);
     response.status(OK).json(admin);
   });
 

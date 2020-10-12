@@ -10,11 +10,11 @@ export default function HomeNewProducts() {
     const getNewProducts = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:8080/api/newproducts'
+          'http://localhost:8080/api/allnewproducts/null'
         );
         setAllNewProducts(response.data.reverse());
       } catch (error) {
-        console.error(error);
+        console.error(error.response);
       }
     };
     getNewProducts();

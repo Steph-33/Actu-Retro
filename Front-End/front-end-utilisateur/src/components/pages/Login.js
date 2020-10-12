@@ -13,10 +13,6 @@ export default function Login() {
   const [toDashboard, setToDashboard] = useState(false);
   const {state, dispatch} = useContext(AuthContext);
 
-  useEffect(() => {
-    return () => {};
-  }, []);
-
   const handleChange = (event) => {
     setLogin({ ...login, [event.target.name]: event.target.value });
   };

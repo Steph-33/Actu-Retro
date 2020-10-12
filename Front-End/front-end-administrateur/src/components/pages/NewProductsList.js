@@ -59,7 +59,7 @@ export default function NewProductsList() {
               id={newProduct.id}
               onClick={handleDelete}
               className="newproduct-delete-button"
-              type="submit"
+              type="submit" 
             >
               Supprimer
             </button>

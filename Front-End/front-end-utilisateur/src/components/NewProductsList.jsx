@@ -9,7 +9,7 @@ export default function NewProductsList() {
     const getNewProducts = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:8080/api/newproducts'
+          'http://localhost:8080/api/allnewproducts/null'
         );
         setAllNewProducts(response.data.reverse());
       } catch (error) {
@@ -25,8 +25,8 @@ export default function NewProductsList() {
         <div className="newproducts-body-left"></div>
         <div className="newproducts-body-right">
           {allNewProducts.map((newProduct, index) => (
-            <div className="newproducts-body-right-card">
-            <NewProductCard newProduct={newProduct} key={index} />
+            <div className="newproducts-body-right-card" key={index}>
+            <NewProductCard newProduct={newProduct} />
             </div>
           ))}
         </div>

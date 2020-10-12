@@ -1,0 +1,111 @@
+.details-container {
+  background-color: #d3a55a;
+  width: 100%;
+  display: flex;
+}
+
+.details-container-left {
+  background-color: white;
+  width: 55vw;
+  margin-left: 2vw;
+}
+
+.detail-image {
+  background-size: cover;
+  background-color: #d3a55a;
+  padding-top: 8vh;
+  width: 55vw;
+  height: 90vh;
+}
+
+.detail-name {
+  font-weight: bold;
+  padding-left: 2vw;
+  color: black;
+}
+
+.detail-price {
+  font-weight: bold;
+  color: red;
+  padding-left: 2vw;
+}
+
+.detail-description {
+  font-weight: bold;
+  padding-left: 2vw;
+}
+
+.detail-content {
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-bottom: 2vw;
+}
+
+.details-container-right {
+  background-color: #d3a55a;
+  margin-left: 4vw;
+}
+
+.details-container-right-top {
+  margin-top: 8vh;
+  width: 30vw;
+  height: 45vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.product-interest {
+  margin-top: 7vh;
+  margin-bottom: 5vh;
+  width: 20vw;
+  font-size: larger;
+}
+
+.buy-button {
+  width: 20vw;
+  background-color: #d3a55a;
+  color: white;
+  font-weight: bold;
+  font-size: larger;
+  margin-bottom: 5vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+}
+
+.back-button {
+  width: 20vw;
+  background-color: #072050;
+  color: white;
+  font-weight: bold;
+  font-size: larger;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  margin-bottom: 10vh;
+}
+
+.details-container-right-bottom {
+  margin-top: 8vh;
+  width: 30vw;
+  height: 110vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.newproducts-right-card-image {
+  width: 10vw;
+}
+
+.newproducts-right-card-name-price {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 20vw;
+}

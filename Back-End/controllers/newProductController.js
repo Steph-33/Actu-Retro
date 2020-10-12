@@ -85,9 +85,15 @@ module.exports = {
   },
   //Récupérer tous les nouveaux produits
   getAllNewProducts: (request, response) => {
+    if(request.params.limit == 'null' || request.params.limit == undefined || request.params.limit == ""){
+      request.params.limit = 9;
+    }
     models.NewProduct.findAll({
       attributes: ['id', 'name', 'description', 'price', 'quantity', 'image'],
+      limit : parseInt(request.params.limit),
     }).then((newProducts) => {
+      
+
       response.status(201).json(newProducts);
     });
   },
