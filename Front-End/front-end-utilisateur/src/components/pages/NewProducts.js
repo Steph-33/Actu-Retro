@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Header from '../Header';
-import Breadcrumb from '../Breadcrumb';
+import NewProductBreadcrumb from '../NewProductBreadcrumb';
 import NewProductsList from '../NewProductsList';
 import Footer from '../Footer';
 
@@ -11,7 +11,7 @@ export default function NewProduct() {
   return (
     <>
       <Header />
-      <Breadcrumb />
+      <NewProductBreadcrumb />
       <NewProductsList />
       <Footer />
     </>

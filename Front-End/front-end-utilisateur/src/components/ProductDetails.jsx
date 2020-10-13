@@ -1,47 +1,38 @@
 import React, {useState,useEffect} from 'react';
 import axios from 'axios';
-import NewProductCard from './NewProductCard';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 export default function ProductDetails() {
-    const [newProduct, setNewProduct] = useState([]);
+    const [newProduct, setNewProduct] = useState({});
     const [otherProducts, setOtherProducts] = useState([]);
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-            localStorage.clear();
-            localStorage.setItem('id', newProduct.id);
-            localStorage.setItem('image', newProduct.image);
-            localStorage.setItem('name', newProduct.name);
-            localStorage.setItem('price', newProduct.price);
-            localStorage.setItem('description', newProduct.description);
-      };
+    let {id} = useParams(); 
 
     useEffect(() => {
-        const getNewProduct = async () => {
-            let id = localStorage.getItem('id');
+      const getNewProduct = async() =>{
           try {
+            console.log('id =======>', id);
             const response = await axios.get(
               `http://localhost:8080/api/newproducts/${id}`
             );
             setNewProduct(response.data);
+            console.log('response =========> ', response)
           } catch (error) {
             console.error(error);
           }
-        };
-        getNewProduct();
-        const getOtherProducts = async () => {
-            try {
-              const response = await axios.get(
-                'http://localhost:8080/api/allnewproducts/3'
-              );
-              setOtherProducts(response.data.reverse());
-            } catch (error) {
+      };
+      getNewProduct();
+      const getOtherProducts = async () => {
+          try {
+            const response = await axios.get(
+              'http://localhost:8080/api/allnewproducts/3'
+            );
+            setOtherProducts(response.data.reverse());
+          } catch (error) {
               console.error(error.response);
-            }
-          };
-          getOtherProducts();
-      }, []);
+          }
+      };
+      getOtherProducts();
+    }, [id]);
     return (
         <div className="details-container">
             <div className="details-container-left">
@@ -55,13 +46,13 @@ export default function ProductDetails() {
                 <div className="details-container-right-top">
                     <p className="product-interest">Ce produit vous intéresse ? </p>
                     <button className="buy-button">Acheter</button>
-                    <button className="back-button">Revenir à la liste</button>
+                    <Link to={'/newproducts/'} style={{ textDecoration: 'none' }}><button className="back-button">Revenir à la liste</button></Link>
                 </div>
                 <div className="details-container-right-bottom">
                     <p className="product-interest">Annonces qui pourraient vous intéresser</p>
                     <hr></hr>
                     {otherProducts.map((newProduct, index) => (
-                    <div onClick={handleSubmit} className="newproducts-right-card" key={index}>
+                    <div className="newproducts-right-card" key={index}>
                         <Link to={`/newproducts/${newProduct.id}`} style={{ textDecoration: 'none' }}>
                             <img className="newproducts-right-card-image" src={newProduct.image} alt="image-produit"/>
                             <div className="newproducts-right-card-name-price">

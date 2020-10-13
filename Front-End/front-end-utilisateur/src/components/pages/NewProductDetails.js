@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from '../Header';
-import Breadcrumb from '../Breadcrumb';
+import NewProductBreadcrumb from '../NewProductBreadcrumb';
 import ProductDetails from '../ProductDetails';
 import Footer from '../Footer';
 
@@ -8,7 +8,7 @@ export default function NewProductDetails() {
     return (
         <>
           <Header />
-          <Breadcrumb />
+          <NewProductBreadcrumb />
           <ProductDetails />
           <Footer />
         </>

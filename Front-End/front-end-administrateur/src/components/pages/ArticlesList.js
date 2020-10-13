@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
 
 export default function ArticlesList() {
-  const history = useHistory();
   const token = localStorage.getItem('token');
   const [allArticles, setAllArticles] = useState([]);
 
@@ -22,7 +20,10 @@ export default function ArticlesList() {
 
     axios(config)
       .then(function (response) {
-        history.push('/articles');
+        const articles = allArticles.filter((article) =>{
+          return article.id !== parseInt(id)
+        })
+        setAllArticles(articles);
         console.log(JSON.stringify(response.data));
       })
       .catch(function (error) {

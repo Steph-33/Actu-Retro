@@ -5,4 +5,6 @@
   padding-top: 2vh;
   padding-bottom: 2vh;
   padding-left: 2vw;
+  align-items: center;
+  display: flex;
 }

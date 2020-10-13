@@ -86,7 +86,7 @@ module.exports = {
   //Récupérer tous les nouveaux produits
   getAllNewProducts: (request, response) => {
     if(request.params.limit == 'null' || request.params.limit == undefined || request.params.limit == ""){
-      request.params.limit = 9;
+      request.params.limit = 20;
     }
     models.NewProduct.findAll({
       attributes: ['id', 'name', 'description', 'price', 'quantity', 'image'],

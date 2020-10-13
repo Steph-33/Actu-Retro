@@ -1,17 +1,17 @@
 const models = require('../models');
 const express = require('express');
 require('express-async-errors');
+const jwtUtils = require('../utils/jwt.utils');
 
 const ConflictError = require('../utils/errors/conflict');
 
 module.exports = {
   // Ajout d'une commande
-  addOrder: async (request, response, userSession) => {
+  addOrder: async (request, response, userId) => {
     const order = {
       date_of_order: request.body.date_of_order,
       products: request.body.products,
       total_price: request.body.total_price,
-      user_id: userSession.id,
     };
     for (const key in order) {
       if (order[key] == null) {
@@ -23,7 +23,7 @@ module.exports = {
     const orderCreated = await models.Order.create({
       date_of_order: request.body.date_of_order,
       total_price: request.body.total_price,
-      user_id: userSession.id,
+      user_id: userId,
     });
     const productsToAdd = order.products.map((product) => {
       return {
@@ -51,7 +51,7 @@ module.exports = {
     }
   },
   // Récupérer une commande par son Id
-  getOrderById: (request, response, userSession) => {
+  getOrderById: (request, response, userId) => {
     models.Order.findOne({
       attributes: ['id', 'date_of_order', 'total_price', 'user_id'],
       where: { id: request.params.id },
@@ -61,7 +61,7 @@ module.exports = {
           id: orderFound.id,
           date_of_order: orderFound.date_of_order,
           total_price: orderFound.total_price,
-          user_id: userSession.id,
+          user_id: userId,
         });
       })
       .catch(() => {

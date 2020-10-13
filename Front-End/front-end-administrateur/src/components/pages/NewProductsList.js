@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
 
 export default function NewProductsList() {
-  const history = useHistory();
   const token = localStorage.getItem('token');
   const [allNewProducts, setAllNewProducts] = useState([]);
 
@@ -22,7 +20,10 @@ export default function NewProductsList() {
 
     axios(config)
       .then(function (response) {
-        history.push('/newproducts');
+        const products = allNewProducts.filter((product) =>{
+          return product.id !== parseInt(id)
+        })
+        setAllNewProducts(products);
         console.log(JSON.stringify(response.data));
       })
       .catch(function (error) {

@@ -11,5 +11,6 @@
 @import './styles/partials/_scrollbar.css';
 @import './styles/partials/_breadcrumb.css';
 @import './styles/partials/_productDetails.css';
+@import './styles/partials/_articleDetails.css';
 @import './styles/pages/_login.css';
 @import './styles/pages/_register.css';
