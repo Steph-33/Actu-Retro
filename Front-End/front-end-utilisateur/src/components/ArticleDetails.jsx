@@ -16,7 +16,6 @@ export default function ArticleDetails() {
               `http://localhost:8080/api/articles/${id}`
             );
             setArticle(response.data);
-            console.log('response =========> ', response)
           } catch (error) {
             console.error(error);
           }

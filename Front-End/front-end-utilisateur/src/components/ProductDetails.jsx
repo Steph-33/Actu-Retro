@@ -1,21 +1,25 @@
 import React, {useState,useEffect} from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
+import ModaleOk from './ModaleOk';
+import ModaleKo from './ModaleKo';
+
 
 export default function ProductDetails() {
     const [newProduct, setNewProduct] = useState({});
     const [otherProducts, setOtherProducts] = useState([]);
+    // const [error, setError] = useState(null);
+    const date = new Date();
+    const date_of_order = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
     let {id} = useParams(); 
-
+    
     useEffect(() => {
       const getNewProduct = async() =>{
           try {
-            console.log('id =======>', id);
             const response = await axios.get(
               `http://localhost:8080/api/newproducts/${id}`
             );
             setNewProduct(response.data);
-            console.log('response =========> ', response)
           } catch (error) {
             console.error(error);
           }
@@ -33,6 +37,38 @@ export default function ProductDetails() {
       };
       getOtherProducts();
     }, [id]);
+
+
+    // Code pour acheter un produit
+    const token = localStorage.getItem('token');
+    const order = JSON.stringify({date_of_order:`${date_of_order}`, products:[{"id":`${id}`,"quantity":1}], total_price:`${newProduct.price}`});
+
+    const buyProduct = (e) => {
+        e.preventDefault();
+        var config = {
+            method: 'post',
+            url: 'http://localhost:8080/api/orders',
+            headers: { 
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json'
+            },
+            data : order
+        };
+        
+        if(token){
+            axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+            console.log('prout');
+            return <ModaleOk/>
+        }else{
+            return <ModaleKo />
+        }
+    };  
     return (
         <div className="details-container">
             <div className="details-container-left">
@@ -42,10 +78,10 @@ export default function ProductDetails() {
                 <p className="detail-description">Description</p>
                 <p className="detail-content">{newProduct.description}</p>
             </div>
-            <div className="details-container-right">
-                <div className="details-container-right-top">
+            <div className="details-container-right" onClick={buyProduct}>
+                <div className="details-container-right-top" >
                     <p className="product-interest">Ce produit vous intéresse ? </p>
-                    <button className="buy-button">Acheter</button>
+                    <button className="buy-button" type="button">Acheter</button>
                     <Link to={'/newproducts/'} style={{ textDecoration: 'none' }}><button className="back-button">Revenir à la liste</button></Link>
                 </div>
                 <div className="details-container-right-bottom">

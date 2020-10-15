@@ -1,26 +1,17 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useContext } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import UserCard from './UserCard';
 import AuthContext from './AuthContext'
 
 export default function Header() {
-  const [refresh, setRefresh] = useState(false);
   const {state} = useContext(AuthContext);
+  const { dispatch } = useContext(AuthContext);
   
-  useEffect(() => {
-    setRefresh(true);
-    if (refresh) {
-      window.location = '/';
-    }
-  }, []);
-
-  const logout = () => {
-    localStorage.clear();
-    setRefresh(true);
-    if (refresh) {
-      window.location = '/';
-    }
-  };
+  const logout = () =>{
+    dispatch({
+      type:"LOGOUT",
+    });
+  }
   return (
     <>
       <div className="header-top">

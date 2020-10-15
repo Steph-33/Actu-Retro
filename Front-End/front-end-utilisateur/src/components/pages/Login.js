@@ -11,7 +11,7 @@ export default function Login() {
   const [login, setLogin] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
   const [toDashboard, setToDashboard] = useState(false);
-  const {state, dispatch} = useContext(AuthContext);
+  const { dispatch } = useContext(AuthContext);
 
   const handleChange = (event) => {
     setLogin({ ...login, [event.target.name]: event.target.value });
@@ -27,9 +27,6 @@ export default function Login() {
           type: "LOGIN",
           payload: response,
         });
-        localStorage.setItem('token', response.data.token);
-        localStorage.setItem('firstname', response.data.user.firstname);
-        localStorage.setItem('lastname', response.data.user.lastname);
         setToDashboard(true);
       })
       .catch((error) => {
@@ -49,8 +46,6 @@ export default function Login() {
       </NavLink>
       <div
         className="container-login"
-        method="POST"
-        action="/login"
         onSubmit={handleSubmit}
       >
         {toDashboard ? <Redirect to="/" /> : null}

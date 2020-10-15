@@ -2,8 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default function NewProductCard({ newProduct }) {
-  
-
   return (
     <div className="box-newproduct">
       <Link

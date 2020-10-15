@@ -19,6 +19,7 @@ export default function Login() {
   };
 
   const handleSubmit = (e) => {
+    console.log ({e});
     e.preventDefault();
     axios
       .post('http://localhost:8080/api/admin/login', login)
@@ -43,8 +44,6 @@ export default function Login() {
   return (
     <div
       className="container-login"
-      method="POST"
-      action="/login"
       onSubmit={handleSubmit}
     >
       {toDashboard ? <Redirect to="/portal" /> : null}
