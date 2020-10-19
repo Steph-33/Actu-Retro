@@ -1,17 +1,15 @@
 import React, {useState,useEffect} from 'react';
 import axios from 'axios';
 import { Link, useParams } from 'react-router-dom';
-import ModaleOk from './ModaleOk';
-import ModaleKo from './ModaleKo';
-
 
 export default function ProductDetails() {
     const [newProduct, setNewProduct] = useState({});
     const [otherProducts, setOtherProducts] = useState([]);
-    // const [error, setError] = useState(null);
     const date = new Date();
     const date_of_order = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
     let {id} = useParams(); 
+    const [displayOkModal, setDisplayOkModal] = useState(true);
+    const [displayKoModal, setDisplayKoModal] = useState(true);
     
     useEffect(() => {
       const getNewProduct = async() =>{
@@ -63,10 +61,27 @@ export default function ProductDetails() {
             .catch(function (error) {
                 console.log(error);
             });
-            console.log('prout');
-            return <ModaleOk/>
+            setDisplayOkModal(!displayOkModal);
+            console.log('ModaleOK');
+            console.log({displayOkModal});
+            // return (
+            //     <>
+                 
+            //     </>);
         }else{
-            return <ModaleKo />
+            setDisplayKoModal(!displayKoModal);
+            console.log('ModaleKO');
+            console.log("displayKoModal =========> ",displayKoModal);
+            // return (
+            //     <>
+            //         {displayKoModal && 
+            //         <div className="modal">
+            //             <button>X</button>
+            //             <div>
+            //                 Désolé, vous devez être connecté(e) pour effectuer un achat. 
+            //             </div>
+            //         </div>}
+            //     </>);
         }
     };  
     return (
@@ -79,6 +94,21 @@ export default function ProductDetails() {
                 <p className="detail-content">{newProduct.description}</p>
             </div>
             <div className="details-container-right" onClick={buyProduct}>
+                    {displayOkModal && 
+                    <div className="modal">
+                        <button>X</button>
+                        <div>
+                            Votre achat a bien été enregistré. 
+                            Votre colis vous sera livré sous un délai de 3 jours. 
+                        </div>
+                    </div>}
+                    {displayKoModal && 
+                    <div className="modal">
+                        <button>X</button>
+                        <div>
+                            Désolé, vous devez être connecté(e) pour effectuer un achat. 
+                        </div>
+                    </div>}
                 <div className="details-container-right-top" >
                     <p className="product-interest">Ce produit vous intéresse ? </p>
                     <button className="buy-button" type="button">Acheter</button>

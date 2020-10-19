@@ -1,0 +1,46 @@
+.slides-container {
+  display: flex;
+  /* overflow-x: scroll; */
+}
+
+/* .slider-1 {
+  background-image: url(../../images/games-4261598_1280.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 150vh;
+}
+
+.slider-2 {
+  background-image: url(../../images/nintendo-4684999_1920.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 80vh;
+} */
+
+.slider-title,
+.slider-text {
+  color: white;
+  font-weight: bold;
+  margin-left: 12%;
+  margin-right: 8%;
+}
+
+.slider-title {
+  padding-top: 20%;
+}
+
+.enterButton {
+  margin-left: 12%;
+  height: 2rem;
+  width: 10%;
+  border-radius: 0.5rem;
+  outline: none;
+  background-color: white;
+  color: #072050;
+  font-size: large;
+  font-weight: bolder;
+  border: none;
+  cursor: pointer;
+}

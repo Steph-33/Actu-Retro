@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import Header from '../Header';
-import Slider from '../Slider';
+import Slides from '../Slides';
 import HomeArticle from '../HomeArticles';
 import HomeNewProduct from '../HomeNewProducts';
 import HomeUsedProduct from '../HomeUsedProducts';
@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <Slider />
+      <Slides />
       <HomeArticle />
       <HomeNewProduct />
       <HomeUsedProduct />

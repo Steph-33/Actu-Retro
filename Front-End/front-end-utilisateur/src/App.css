@@ -1,6 +1,6 @@
 @import './styles/partials/_nav.css';
 @import './styles/partials/_header.css';
-@import './styles/partials/_slider.css';
+@import './styles/partials/_slides.css';
 @import './styles/partials/_homeArticles.css';
 @import './styles/partials/_articleCard.css';
 @import './styles/partials/_newProductCard.css';
@@ -12,5 +12,6 @@
 @import './styles/partials/_breadcrumb.css';
 @import './styles/partials/_productDetails.css';
 @import './styles/partials/_articleDetails.css';
+@import './styles/partials/_modal.css';
 @import './styles/pages/_login.css';
 @import './styles/pages/_register.css';
