@@ -8,8 +8,8 @@ export default function ProductDetails() {
     const date = new Date();
     const date_of_order = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
     let {id} = useParams(); 
-    const [displayOkModal, setDisplayOkModal] = useState(true);
-    const [displayKoModal, setDisplayKoModal] = useState(true);
+    const [displayOkModal, setDisplayOkModal] = useState(false);
+    const [displayKoModal, setDisplayKoModal] = useState(false);
     
     useEffect(() => {
       const getNewProduct = async() =>{
@@ -61,31 +61,34 @@ export default function ProductDetails() {
             .catch(function (error) {
                 console.log(error);
             });
-            setDisplayOkModal(!displayOkModal);
+            setDisplayOkModal(true);
             console.log('ModaleOK');
             console.log({displayOkModal});
-            // return (
-            //     <>
-                 
-            //     </>);
         }else{
-            setDisplayKoModal(!displayKoModal);
+            setDisplayKoModal(true);
             console.log('ModaleKO');
             console.log("displayKoModal =========> ",displayKoModal);
-            // return (
-            //     <>
-            //         {displayKoModal && 
-            //         <div className="modal">
-            //             <button>X</button>
-            //             <div>
-            //                 Désolé, vous devez être connecté(e) pour effectuer un achat. 
-            //             </div>
-            //         </div>}
-            //     </>);
         }
     };  
     return (
         <div className="details-container">
+            <div className="modals">
+            {displayOkModal && 
+                    <div className="modal">
+                        <button className="close" onClick={()=> setDisplayOkModal(!displayOkModal)}>X</button>
+                        <div className="modal-text">
+                            Votre achat a bien été enregistré.<br></br>
+                            Votre colis vous sera livré sous un délai de 3 jours. 
+                        </div>
+                    </div>}
+                    {displayKoModal && 
+                    <div className="modal">
+                        <button className="close" onClick={()=> setDisplayKoModal(!displayKoModal)}>X</button>
+                        <div className="modal-text">
+                            Désolé, vous devez être connecté(e) pour effectuer un achat. 
+                        </div>
+                    </div>}
+            </div>
             <div className="details-container-left">
                 <img className="detail-image" src={newProduct.image} alt="Product"/>
                 <p className="detail-name">{newProduct.name}</p>
@@ -93,22 +96,8 @@ export default function ProductDetails() {
                 <p className="detail-description">Description</p>
                 <p className="detail-content">{newProduct.description}</p>
             </div>
+            
             <div className="details-container-right" onClick={buyProduct}>
-                    {displayOkModal && 
-                    <div className="modal">
-                        <button>X</button>
-                        <div>
-                            Votre achat a bien été enregistré. 
-                            Votre colis vous sera livré sous un délai de 3 jours. 
-                        </div>
-                    </div>}
-                    {displayKoModal && 
-                    <div className="modal">
-                        <button>X</button>
-                        <div>
-                            Désolé, vous devez être connecté(e) pour effectuer un achat. 
-                        </div>
-                    </div>}
                 <div className="details-container-right-top" >
                     <p className="product-interest">Ce produit vous intéresse ? </p>
                     <button className="buy-button" type="button">Acheter</button>
