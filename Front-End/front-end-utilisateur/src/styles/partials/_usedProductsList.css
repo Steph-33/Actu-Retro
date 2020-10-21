@@ -1,0 +1,25 @@
+.search-input {
+  height: 15vh;
+  background-color: #d3a55a;
+}
+
+.usedproducts-body {
+  display: flex;
+  width: 95vw;
+}
+
+.usedproducts-body-left {
+  width: 15vw;
+  background-color: #d3a55a;
+}
+
+.usedproducts-body-right {
+  display: flex;
+  flex-direction: column;
+  width: 80vw;
+  margin-left: 5vw;
+}
+
+.usedproducts-body-right-card {
+  margin-right: 2vw;
+}

@@ -5,6 +5,8 @@ import HomeArticle from '../HomeArticles';
 import HomeNewProduct from '../HomeNewProducts';
 import HomeUsedProduct from '../HomeUsedProducts';
 import Footer from '../Footer';
+import Slider from "../slider/Slider"
+import Images from "../slider/images"
 
 export default function Home() {
   useEffect(() => {
@@ -13,6 +15,7 @@ export default function Home() {
   return (
     <>
       <Header />
+      {/* <Slider images={Images} /> */}
       <Slides />
       <HomeArticle />
       <HomeNewProduct />

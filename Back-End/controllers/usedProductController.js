@@ -75,9 +75,11 @@ module.exports = {
       attributes: [
         'id',
         'name',
+        'state',
         'description',
         'price',
         'image',
+        'location',
         'contact',
         'user_id',
       ],
@@ -87,9 +89,11 @@ module.exports = {
         return response.status(200).json({
           id: usedProductFound.id,
           name: usedProductFound.name,
+          state: usedProductFound.state,
           description: usedProductFound.description,
           price: usedProductFound.price,
           image: usedProductFound.image,
+          location: usedProductFound.location,
           contact: usedProductFound.contact,
           user_id: usedProductFound.user_id,
         });
@@ -101,16 +105,22 @@ module.exports = {
       });
   },
   getAllUsedProducts: (request, response) => {
+    if(request.params.limit == 'null' || request.params.limit == undefined || request.params.limit == ""){
+      request.params.limit = 20;
+    }
     models.UsedProduct.findAll({
       attributes: [
         'id',
         'name',
+        'state',
         'description',
         'price',
         'image',
+        'location',
         'contact',
         'user_id',
       ],
+      limit : parseInt(request.params.limit),
     }).then((usedProducts) => {
       response.status(201).json(usedProducts);
     });

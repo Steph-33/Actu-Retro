@@ -62,18 +62,14 @@ export default function ProductDetails() {
                 console.log(error);
             });
             setDisplayOkModal(true);
-            console.log('ModaleOK');
-            console.log({displayOkModal});
         }else{
             setDisplayKoModal(true);
-            console.log('ModaleKO');
-            console.log("displayKoModal =========> ",displayKoModal);
         }
     };  
     return (
         <div className="details-container">
             <div className="modals">
-            {displayOkModal && 
+                    {displayOkModal && 
                     <div className="modal">
                         <button className="close" onClick={()=> setDisplayOkModal(!displayOkModal)}>X</button>
                         <div className="modal-text">

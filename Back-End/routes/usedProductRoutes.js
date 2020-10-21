@@ -13,6 +13,7 @@ usedProductRouter.get(
   '/usedproducts',
   usedProductController.getAllUsedProducts
 );
+usedProductRouter.get('/allusedproducts/:limit', usedProductController.getAllUsedProducts);
 usedProductRouter.post('/usedproducts', multer, (request, response) => {
   let userSession = {};
   userController.getUserSession(request, response, (userInfos) => {

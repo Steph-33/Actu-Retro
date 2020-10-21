@@ -92,8 +92,6 @@ module.exports = {
       attributes: ['id', 'name', 'description', 'price', 'quantity', 'image'],
       limit : parseInt(request.params.limit),
     }).then((newProducts) => {
-      
-
       response.status(201).json(newProducts);
     });
   },

@@ -1,0 +1,52 @@
+.slider {
+  display: flex;
+}
+
+.slider--feature {
+  margin-top: 40vh;
+}
+.feature--title,
+.feature--text {
+  color: white;
+  font-weight: bold;
+  margin-left: 12%;
+  margin-right: 8%;
+}
+
+.slider-title {
+  padding-top: 20%;
+}
+
+.enterButton {
+  margin-left: 12%;
+  height: 2rem;
+  width: 10%;
+  border-radius: 0.5rem;
+  outline: none;
+  background-color: white;
+  color: #072050;
+  font-size: large;
+  font-weight: bolder;
+  border: none;
+  cursor: pointer;
+}
+
+.slider-buttons {
+  display: flex;
+  align-items: center;
+  margin-left: 50%;
+}
+.slider__btn-left,
+.slider__btn-right {
+  height: 2rem;
+  width: 7%;
+  margin-top: 5vh;
+  border-radius: 0.5rem;
+  outline: none;
+  background-color: white;
+  color: #072050;
+  font-size: large;
+  font-weight: bolder;
+  border: none;
+  cursor: pointer;
+}

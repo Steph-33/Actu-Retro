@@ -1,10 +1,12 @@
 @import './styles/partials/_nav.css';
 @import './styles/partials/_header.css';
 @import './styles/partials/_slides.css';
+@import './styles/partials/_slider.css';
 @import './styles/partials/_homeArticles.css';
 @import './styles/partials/_articleCard.css';
 @import './styles/partials/_newProductCard.css';
 @import './styles/partials/_newProductsList.css';
+@import './styles/partials/_usedProductsList.css';
 @import './styles/partials/_usedProductCard.css';
 @import './styles/partials/_footer.css';
 @import './styles/partials/_userCard.css';
