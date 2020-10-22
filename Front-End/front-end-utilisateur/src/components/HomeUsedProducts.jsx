@@ -10,7 +10,7 @@ export default function HomeUsedProducts() {
     const getUsedProducts = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:8080/api/usedproducts'
+          'http://localhost:8080/api/allusedproducts/8'
         );
         setAllUsedProducts(response.data.reverse());
       } catch (error) {

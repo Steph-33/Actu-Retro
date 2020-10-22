@@ -11,7 +11,7 @@
   margin-bottom: 0.5em;
   margin-top: 2rem;
   width: 100%;
-  height: 50vh;
+  height: 40vh;
 }
 
 .container-top-label {
@@ -58,6 +58,53 @@
   width: 20vw;
 }
 .usedproduct-price {
+  text-decoration: none;
+  background-color: white;
+  color: red;
+  font-weight: bold;
+  font-size: larger;
+  text-align: left;
+  padding-left: 2%;
+  margin-left: 1.5rem;
+  margin-right: 1rem;
+  width: 20vw;
+}
+
+.largebox-usedproduct-content {
+  display: flex;
+}
+
+.usedproduct-leftbox {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3vh;
+  justify-content: space-between;
+}
+
+.usedproduct-rightbox {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3vh;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.usedproduct--name,
+.usedproduct--state,
+.usedproduct--location,
+.usedproduct--contact {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  font-weight: bold;
+  font-size: larger;
+  text-align: left;
+  padding-left: 2%;
+  margin-left: 1.5rem;
+  margin-right: 1rem;
+  width: 20vw;
+}
+.usedproduct--price {
   text-decoration: none;
   background-color: white;
   color: red;

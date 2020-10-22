@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import UsedProductLargeCard from './UsedProductLargeCard';
+import { useHistory } from 'react-router-dom';
 
 export default function UsedProductsList() {
+  const history = useHistory();
   const [allUsedProducts, setAllUsedProducts] = useState([]);
+  const [displayModal, setDisplayModal] = useState(false);
+  const token = localStorage.getItem('token');
+
 
   useEffect(() => {
     const getUsedProducts = async () => {
@@ -18,9 +23,29 @@ export default function UsedProductsList() {
     };
     getUsedProducts();
   }, []);
+
+  const sellProduct = (e) => {
+    e.preventDefault();
+    
+    if(token){
+      history.push("/createannouncement"); 
+    }else{
+      setDisplayModal(true);
+    }
+  };  
+
   return (
     <>
-      <div className="search-input"></div>
+      <div className="search-input">
+        {displayModal && 
+        <div className="modal">
+          <button className="close" onClick={()=> setDisplayModal(!displayModal)}>X</button>
+          <div className="modal-text">
+            Désolé, vous devez être connecté(e) pour créer une annonce. 
+          </div>
+        </div>}
+        <button className="sell-button" type="button" onClick={sellProduct}>Créer une annonce</button>
+      </div>
       <div className="usedproducts-body">
         <div className="usedproducts-body-left"></div>
         <div className="usedproducts-body-right">

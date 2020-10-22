@@ -8,6 +8,7 @@
 @import './styles/partials/_newProductsList.css';
 @import './styles/partials/_usedProductsList.css';
 @import './styles/partials/_usedProductCard.css';
+@import './styles/partials/_usedProductDetails.css';
 @import './styles/partials/_footer.css';
 @import './styles/partials/_userCard.css';
 @import './styles/partials/_scrollbar.css';
@@ -15,5 +16,6 @@
 @import './styles/partials/_productDetails.css';
 @import './styles/partials/_articleDetails.css';
 @import './styles/partials/_modal.css';
+@import './styles/pages/_create-announcement.css';
 @import './styles/pages/_login.css';
 @import './styles/pages/_register.css';

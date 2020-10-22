@@ -92,7 +92,6 @@ export default function ProductDetails() {
                 <p className="detail-description">Description</p>
                 <p className="detail-content">{newProduct.description}</p>
             </div>
-            
             <div className="details-container-right" onClick={buyProduct}>
                 <div className="details-container-right-top" >
                     <p className="product-interest">Ce produit vous intéresse ? </p>

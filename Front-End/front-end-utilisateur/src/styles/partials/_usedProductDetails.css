@@ -1,0 +1,147 @@
+.details-usedproduct-container {
+  background-color: #d3a55a;
+  width: 100%;
+  display: flex;
+}
+
+.details-usedproduct-container-left {
+  background-color: #d3a55a;
+  width: 55vw;
+  margin-left: 2vw;
+}
+
+.details-usedproduct-container-middle {
+  background-color: white;
+}
+
+.detail-image {
+  background-size: cover;
+  background-color: #d3a55a;
+  padding-top: 8vh;
+  width: 55vw;
+  height: 90vh;
+}
+
+.detail-name {
+  font-weight: bold;
+  padding-left: 2vw;
+  color: black;
+}
+
+.detail-price {
+  font-weight: bold;
+  color: red;
+  padding-left: 2vw;
+}
+
+.detail-description {
+  font-weight: bold;
+  padding-left: 2vw;
+}
+
+.detail-content,
+.detail-state,
+.detail-location,
+.detail-contact,
+.detail-date {
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-bottom: 2vw;
+}
+
+.details-usedproduct-container-right {
+  background-color: #d3a55a;
+  margin-left: 8vw;
+  margin-right: 2vw;
+}
+
+.details-usedproduct-container-right-top {
+  margin-top: 8vh;
+  width: 30vw;
+  height: 45vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.product-interest {
+  margin-top: 7vh;
+  margin-bottom: 5vh;
+  width: 20vw;
+  font-size: larger;
+}
+
+.buy-button {
+  width: 20vw;
+  background-color: #d3a55a;
+  color: white;
+  font-weight: bold;
+  font-size: larger;
+  margin-bottom: 5vh;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  cursor: pointer;
+}
+
+.back-button {
+  width: 20vw;
+  background-color: #072050;
+  color: white;
+  font-weight: bold;
+  font-size: larger;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+  margin-bottom: 10vh;
+  cursor: pointer;
+}
+
+.details-usedproduct-container-right-bottom {
+  margin-top: 8vh;
+  width: 30vw;
+  height: 110vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.usedproducts-right-card-image {
+  width: 12vw;
+}
+
+.usedproducts-right-card-name-price {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 20vw;
+}
+
+.usedproduct-detail-name {
+  font-weight: bold;
+  color: black;
+}
+
+.usedproduct-detail-price {
+  display: flex;
+  justify-content: flex-start;
+  font-weight: bold;
+  color: red;
+}
+
+.sell-button {
+  background-color: white;
+  color: #072050;
+  font-weight: bolder;
+  font-size: large;
+  width: 15vw;
+  height: 10vh;
+  margin-top: 2vh;
+  margin-left: 2vw;
+  border-radius: 5px;
+  cursor: pointer;
+}
