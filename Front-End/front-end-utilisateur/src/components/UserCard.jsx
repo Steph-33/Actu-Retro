@@ -29,33 +29,15 @@ class UserCard extends React.Component {
   render() {
     return (
       <div>
-        <Link
-          onClick={this.showDropdownMenu}
-          style={{ textDecoration: 'none' }}
-          className="dropdown-menu"
-        >
+        <Link onClick={this.showDropdownMenu} style={{ textDecoration: 'none' }} className="dropdown-menu">
           UTILISATEUR
         </Link>
-
         {this.state.displayMenu ? (
-          <div
-            className="menu"
-            ref={(element) => {
-              this.dropdownMenu = element;
-            }}
-          >
-            <Link
-              to="/register"
-              style={{ textDecoration: 'none' }}
-              className="menu-choice"
-            >
+          <div className="menu" ref={(element) => { this.dropdownMenu = element; }}>
+            <Link to="/register" style={{ textDecoration: 'none' }} className="menu-choice">
               Créer un compte
             </Link>
-            <Link
-              to="/login"
-              style={{ textDecoration: 'none' }}
-              className="menu-choice"
-            >
+            <Link to="/login" style={{ textDecoration: 'none' }} className="menu-choice">
               Se connecter
             </Link>
           </div>

@@ -39,12 +39,13 @@ module.exports = {
       });
       if (newProduct) {
         return response.status(201).json({
-          id: newProduct.id,
-          name: newProduct.name,
-          description: newProduct.description,
-          price: newProduct.price,
-          quantity: newProduct.quantity,
-          image: newProduct.image,
+          message : "Produit ajouté avec succès !! ",
+          // id: newProduct.id,
+          // name: newProduct.name,
+          // description: newProduct.description,
+          // price: newProduct.price,
+          // quantity: newProduct.quantity,
+          // image: newProduct.image,
         });
       } else {
         return response.status(401).json({

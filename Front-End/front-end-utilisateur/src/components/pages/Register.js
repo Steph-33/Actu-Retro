@@ -136,7 +136,7 @@ export default function Register() {
             />
           </div>
           <button className="form-register-button" type="submit">
-            Connexion
+            S'enregistrer
           </button>
         </form>
       </div>

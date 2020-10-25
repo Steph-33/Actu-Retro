@@ -14,7 +14,7 @@ export default function Home() {
   });
   return (
     <>
-      <Header />
+      <Header/>
       {/* <Slider images={Images} /> */}
       <Slides />
       <HomeArticle />

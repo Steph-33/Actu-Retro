@@ -103,10 +103,7 @@ module.exports = {
     };
     for (const key in userInfos) {
       if (userInfos[key] == null) {
-        throw new BadRequest(
-          'Mauvaise Requête',
-          `Le champs ${key} n'est pas renseigné ❌`
-        );
+        throw new BadRequest('Mauvaise Requête',`Le champs ${key} n'est pas renseigné ❌`);
       }
     }
     const userFound = await models.User.findOne({
@@ -128,16 +125,11 @@ module.exports = {
               user: userToken,
             });
           }
-          return response.status(403).json({
-            error: 'Mot de passe incorrect ! ❌',
-          });
+          return response.status(403).json({ error: 'Mot de passe incorrect ! ❌', });
         }
       );
     } else {
-      throw new NotFoundError(
-        'Ressource introuvable',
-        "L'utilisateur demandé n'existe pas ❌"
-      );
+      throw new NotFoundError('Ressource introuvable',"L'utilisateur demandé n'existe pas ❌");
     }
   },
   getUserSession: async (request, response, cb) => {
