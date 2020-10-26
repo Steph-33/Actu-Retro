@@ -18,7 +18,7 @@ export default function Header() {
         L’ACTUALITÉ, LES PRODUITS NEUFS OU D’OCCASION, FAITES VOTRE CHOIX !
       </div>
       <div className="intro">
-        <NavLink to="/" style={{ textDecoration: 'none' }}>
+        <NavLink className="intro-navlink" to="/" style={{ textDecoration: 'none' }}>
           <img
             className="header-logo"
             src="/assets/images/logo_acturetro_accueil.png"
