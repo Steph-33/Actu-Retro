@@ -61,6 +61,11 @@ nav {
   margin-left: 2vw;
   margin-bottom: 3vh;
 }
+
+.burger-menu {
+  display: none;
+}
+
 /*---------------------------------^ FIN SECTION DESKTOP ^------------------------------------*/
 /* ######################################################################################### */
 /* ######################################################################################### */
@@ -94,6 +99,12 @@ nav {
     display: none;
   }
 
+  .header-link {
+    margin-right: 5%;
+    text-decoration: none;
+    color: white;
+  }
+
   .header-top {
     text-align: center;
     font-weight: bold;
@@ -117,6 +128,10 @@ nav {
     font-size: 1.5rem;
     margin-top: 0;
     margin-left: 0;
+  }
+
+  .burger-menu {
+    display: block;
   }
 }
 /*---------------------------------^ FIN SECTION PORTABLE ^------------------------------------*/

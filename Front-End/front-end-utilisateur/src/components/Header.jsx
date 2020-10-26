@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import UserCard from './UserCard';
-import AuthContext from './AuthContext'
+import AuthContext from './AuthContext';
+import Sidebar from './Sidebar';
 
 export default function Header() {
   const {state} = useContext(AuthContext);
@@ -35,6 +36,9 @@ export default function Header() {
               </Link>
             </div>
           )}
+        </div>
+        <div className="burger-menu">
+          <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
         </div>
       </div>
       <nav>

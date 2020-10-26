@@ -10,6 +10,7 @@
     "infinite-react-carousel": "^1.2.11",
     "react": "^16.13.1",
     "react-awesome-slider": "^4.1.0",
+    "react-burger-menu": "^2.7.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"
