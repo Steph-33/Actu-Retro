@@ -74,6 +74,11 @@ nav {
 
 /*------------------------------------SECTION PORTABLE---------------------------------------*/
 @media screen and (max-width: 1024px) {
+  .intro {
+    display: flex;
+    flex-direction: column;
+  }
+
   .intro-navlink {
     display: flex;
     flex-direction: column;
@@ -128,6 +133,28 @@ nav {
     font-size: 1.5rem;
     margin-top: 0;
     margin-left: 0;
+  }
+
+  .registration-box {
+    width: 80vw;
+  }
+
+  .session-box {
+    display: flex;
+    color: #072050;
+    align-items: center;
+  }
+
+  .welcome-message {
+    padding-top: 0;
+    margin-left: 3vw;
+    margin-right: 2vw;
+  }
+
+  .quit-link {
+    padding-top: 0;
+    color: #d3a55a;
+    font-size: smaller;
   }
 
   .burger-menu {

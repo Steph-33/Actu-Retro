@@ -40,7 +40,7 @@ export default function Header() {
         <div className="burger-menu">
           <Sidebar pageWrapId={'page-wrap'} outerContainerId={'outer-container'} />
         </div>
-      </div>
+        </div>
       <nav>
         <Link className="header-link" to="/">
           ACCUEIL
