@@ -121,6 +121,7 @@ export default function Register() {
             <div>
               <label htmlFor="image">Sélectionnez une photo de profil </label>
               <input
+              className="label-image"
                 type="file"
                 id="image"
                 name="image"
