@@ -1,3 +1,4 @@
+/*---------------------------------SECTION DESKTOP----------------------------------------*/
 .details-container {
   background-color: #d3a55a;
   width: 100%;
@@ -111,3 +112,135 @@
   justify-content: space-between;
   width: 20vw;
 }
+/*---------------------------------^ FIN SECTION DESKTOP ^------------------------------------*/
+/* ######################################################################################### */
+/* ######################################################################################### */
+/* ######################################################################################### */
+/* ######################################################################################### */
+
+/*------------------------------------SECTION PORTABLE---------------------------------------*/
+@media screen and (max-width: 1024px) {
+  .details-container {
+    width: 160vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .details-container-left {
+    background-color: white;
+    width: 156vw;
+    margin-left: 2vw;
+  }
+
+  .detail-image {
+    background-size: cover;
+    background-color: #d3a55a;
+    padding-top: 8vh;
+    width: 156vw;
+    height: 90vh;
+  }
+
+  .detail-name {
+    font-weight: bold;
+    padding-left: 2vw;
+    color: black;
+    margin-bottom: 0;
+  }
+
+  .detail-price {
+    font-weight: bold;
+    color: red;
+    padding-left: 2vw;
+    margin-top: 0;
+  }
+
+  .detail-description {
+    font-weight: bold;
+    padding-left: 2vw;
+  }
+
+  .detail-content {
+    padding-left: 2vw;
+    padding-right: 2vw;
+    padding-bottom: 2vw;
+  }
+
+  .details-container-right {
+    background-color: #d3a55a;
+    margin-left: 2vw;
+  }
+
+  .details-container-right-top {
+    margin-top: 2vh;
+    width: 156vw;
+    height: 25vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    font-weight: bold;
+  }
+
+  .product-interest {
+    margin-top: 3vh;
+    margin-bottom: 4vh;
+    width: 156vw;
+    font-size: larger;
+  }
+
+  .buy-button {
+    width: 70vw;
+    border-radius: 25px;
+    background-color: #072050;
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+    margin-bottom: 0;
+    padding-top: 2vh;
+    padding-bottom: 2vh;
+    cursor: none;
+  }
+
+  .back-button {
+    display: none;
+  }
+
+  .details-container-right-bottom {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2vh;
+    width: 156vw;
+    height: 45vh;
+    background-color: white;
+    font-weight: bold;
+  }
+
+  .other-products {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .newproducts-right-card {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    height: 40vh;
+  }
+
+  .newproducts-right-card-name-price {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+  }
+
+  .newproducts-right-card-image {
+    width: 40vw;
+    height: 20vh;
+  }
+}
+/*---------------------------------^ FIN SECTION PORTABLE ^------------------------------------*/
+/* ######################################################################################### */
+/* ######################################################################################### */
+/* ######################################################################################### */
+/* ######################################################################################### */

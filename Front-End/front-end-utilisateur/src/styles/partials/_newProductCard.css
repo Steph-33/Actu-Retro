@@ -67,8 +67,13 @@
 
 /*------------------------------------SECTION PORTABLE---------------------------------------*/
 @media screen and (max-width: 1024px) {
+  .box-newproduct {
+    width: 75vw;
+    height: 50vh;
+  }
+
   .newproduct-image {
-    width: 70vw;
+    width: 65vw;
   }
 
   .newproduct-name {

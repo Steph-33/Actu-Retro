@@ -101,6 +101,7 @@ export default function ProductDetails() {
                 <div className="details-container-right-bottom">
                     <p className="product-interest">Annonces qui pourraient vous intéresser</p>
                     <hr></hr>
+                    <div className="other-products">
                     {otherProducts.map((newProduct, index) => (
                     <div className="newproducts-right-card" key={index}>
                         <Link to={`/newproducts/${newProduct.id}`} style={{ textDecoration: 'none' }}>
@@ -110,8 +111,9 @@ export default function ProductDetails() {
                                 <p className="detail-price">{newProduct.price}€</p>
                             </div>
                         </Link>
+                        </div>
+                        ))}
                     </div>
-                    ))}
                 </div>
             </div>
         </div>
