@@ -45,8 +45,8 @@ export default function Header() {
         <Link className="header-link" to="/">
           ACCUEIL
         </Link>
-        <Link className="header-link">ACTURETRO C'EST QUOI ? </Link>
-        <Link className="header-link">ACTURETRO C'EST QUI ? </Link>
+        <Link className="header-link" to="/what">ACTURETRO C'EST QUOI ? </Link>
+        <Link className="header-link" to="/who">ACTURETRO C'EST QUI ? </Link>
         <UserCard />
         <Link className="header-link">CONTACT</Link>
       </nav>

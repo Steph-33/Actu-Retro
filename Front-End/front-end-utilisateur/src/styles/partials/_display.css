@@ -1,0 +1,38 @@
+.display-global-container {
+  display: flex;
+  min-height: 220vh;
+}
+
+.display-details-container {
+  box-shadow: 10px 5px 20px grey;
+  height: 200vh;
+  width: 70vw;
+  margin-left: 2vw;
+  margin-top: 3vh;
+  margin-right: 2vw;
+}
+
+.display-details-image {
+  width: 70vw;
+}
+
+.display-details-title {
+  margin-left: 2vw;
+}
+
+.display-details-content {
+  margin: 2vw;
+  text-align: justify;
+}
+
+.display-details-container-right {
+  margin-top: 1vh;
+  width: 30vw;
+  height: 110vh;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  font-weight: bold;
+}

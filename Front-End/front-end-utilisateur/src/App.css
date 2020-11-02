@@ -17,6 +17,7 @@
 @import './styles/partials/_articleDetails.css';
 @import './styles/partials/_modal.css';
 @import './styles/partials/_sidebar.css';
+@import './styles/partials/_display.css';
 @import './styles/pages/_create-announcement.css';
 @import './styles/pages/_login.css';
 @import './styles/pages/_register.css';

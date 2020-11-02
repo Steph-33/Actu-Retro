@@ -8,12 +8,16 @@ import NewProductDetails from './pages/NewProductDetails';
 import UsedProducts from './pages/UsedProducts';
 import UsedProductDescription from './pages/UsedProductDescription';
 import Article from './pages/Article';
-import CreateAnnouncement from './pages/CreateAnnouncement'
+import CreateAnnouncement from './pages/CreateAnnouncement';
+import WhoIsIt from './pages/WhoIsIt';
+import WhatIsIt from './pages/WhatIsIt';
 import ProtectedRoutes from './ProtectedRoutes';
 
 export default function Routes() {
   return (
     <Switch>
+      <Route exact path="/who" component={WhoIsIt} />
+      <Route exact path="/what" component={WhatIsIt} />
       <Route exact path="/createannouncement" component={CreateAnnouncement} />
       <Route exact path="/articles/:id" component={Article} />
       <Route exact path="/newproducts/:id" component={NewProductDetails} />
