@@ -11,7 +11,9 @@ export default function Login() {
   const [login, setLogin] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
   const [toDashboard, setToDashboard] = useState(false);
+  // const [displayLoginModal, setDisplayLoginModal] = useState(false);
   const { dispatch } = useContext(AuthContext);
+  // const token = localStorage.getItem('token');
 
   const handleChange = (event) => {
     setLogin({ ...login, [event.target.name]: event.target.value });
@@ -32,6 +34,11 @@ export default function Login() {
       .catch((error) => {
         setError(error.response.data);
       });
+      // if(!token){
+      //   setDisplayLoginModal(true);
+      // }else{
+      //   setDisplayLoginModal(false);
+      // }
     console.log(error);
   };
 
@@ -48,6 +55,14 @@ export default function Login() {
         className="container-login"
         onSubmit={handleSubmit}
       >
+        {/* {displayLoginModal && 
+          <div className="login-modal">
+            <button className="close" onClick={()=> setDisplayLoginModal(!displayLoginModal)}>X</button>
+            <div className="modal-text">
+              Désolé, cet utilisateur est inconnu !! <br></br>
+              Merci d'entrer un login et un mot de passe existant.  
+            </div>
+        </div>} */}
         {toDashboard ? <Redirect to="/" /> : null}
         <h1>Bienvenue. Merci de vous identifier</h1>
         <form className="form-login">

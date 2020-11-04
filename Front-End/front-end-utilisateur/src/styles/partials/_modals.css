@@ -20,6 +20,19 @@
   font-size: larger;
 }
 
+.login-modal {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 15vh;
+  left: 20vw;
+  background-color: white;
+  color: #072050;
+  width: 60vw;
+  height: 60vh;
+  padding: 0 12px 12px;
+}
+
 .close {
   width: 4vw;
   height: 6vh;
