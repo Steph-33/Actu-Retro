@@ -127,7 +127,6 @@ module.exports = {
   },
   // Mettre à jour un produit d'occasion
   updateUsedProduct: (request, response, userSession) => {
-    console.log('userSessionUpdate ====> ', userSession)
     const usedProduct = {
       id: request.params.id,
       date_of_announcement: request.body.date_of_announcement,

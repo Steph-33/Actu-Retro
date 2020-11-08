@@ -5,12 +5,19 @@ const multer = require('../middlewares/multer-config');
 
 const newProductRouter = express.Router();
 
+// Récupération d'un produit neuf par son id
 newProductRouter.get(
   '/newproducts/:id',
   newProductController.getNewProductById
 );
+
+// Récupération de la totalité des produits neufs
 newProductRouter.get('/newproducts/', newProductController.getAllNewProducts);
+
+// Récupération des produits limité à un nombre
 newProductRouter.get('/allnewproducts/:limit', newProductController.getAllNewProducts);
+
+// Ajout d'un nouveau produit
 newProductRouter.post('/newproducts', multer, (request, response) => {
   let adminSession = {};
   adminController.getAdministratorSession(request, response, (adminInfos) => {
@@ -18,6 +25,8 @@ newProductRouter.post('/newproducts', multer, (request, response) => {
     newProductController.addNewProduct(request, response, adminSession);
   });
 });
+
+// Mise à jour d'un nouveau produit
 newProductRouter.put('/newproducts/:id', multer, (request, response) => {
   let adminSession = {};
   adminController.getAdministratorSession(request, response, (adminInfos) => {
@@ -25,6 +34,8 @@ newProductRouter.put('/newproducts/:id', multer, (request, response) => {
     newProductController.updateNewProduct(request, response, adminSession);
   });
 });
+
+// Suppression d'un nouveau produit
 newProductRouter.delete('/newproducts/:id', (request, response) => {
   let adminSession = {};
   adminController.getAdministratorSession(request, response, (adminInfos) => {

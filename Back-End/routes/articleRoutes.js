@@ -5,8 +5,13 @@ const multer = require('../middlewares/multer-config');
 
 const articleRouter = express.Router();
 
+// Récupération d'un article par son id
 articleRouter.get('/articles/:id', articleController.getArticleById);
+
+// Récupération de l'ensemble des articles
 articleRouter.get('/articles', articleController.getAllArticles);
+
+// Ajout d'un article
 articleRouter.post('/articles', multer, (request, response) => {
   let adminSession = {};
   adminController.getAdministratorSession(request, response, (adminInfos) => {
@@ -14,6 +19,8 @@ articleRouter.post('/articles', multer, (request, response) => {
     articleController.addArticle(request, response, adminSession);
   });
 });
+
+// Mise à jour d'un article
 articleRouter.put('/articles/:id', multer, (request, response) => {
   let adminSession = {};
   adminController.getAdministratorSession(request, response, (adminInfos) => {
@@ -21,6 +28,8 @@ articleRouter.put('/articles/:id', multer, (request, response) => {
     articleController.updateArticle(request, response, adminSession);
   });
 });
+
+// Suppression d'un article
 articleRouter.delete('/articles/:id', (request, response) => {
   let adminSession = {};
   adminController.getAdministratorSession(request, response, (adminInfos) => {
