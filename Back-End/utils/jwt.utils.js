@@ -77,26 +77,21 @@ module.exports = {
   },
   authenticateJWT: (request, response, next) => {
     const authHeader = request.headers.authorization;
-
     if (authHeader) {
       const token = authHeader.split(" ")[1];
-
       jwt.verify(token, JWT_SIGN_SECRET, (error, user) => {
         if (error) {
-          throw new UnauthorizedError(
-            "Accès refusé",
-            "Vous devez être connecté pour accéder à cette ressource."
-          );
+          return response.status(403).json({
+            error: "Vous devez être connecté pour effectuer cette action. ❌",
+          });
         }
         request.user = user;
-
         next();
       });
     } else {
-      throw new BadRequest(
-        "Mauvaise requête",
-        "le token n'as pas été fourni."
-      );
+      return response.status(400).json({
+        error: "Mauvaise requête. Le token n'a pas été fourni ❌",
+      });
     }
   },
 };

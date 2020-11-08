@@ -1,6 +1,5 @@
 const express = require('express');
 const orderController = require('../controllers/orderController');
-const userController = require('../controllers/userController');
 const jwtUtils = require('../utils/jwt.utils')
 
 const orderRouter = express.Router();

@@ -70,6 +70,7 @@ export default function CreateAnnouncement() {
         console.log(JSON.stringify(response.data));
       })
       .catch(function (error) {
+        console.log({token});
         console.log(error);
       });
   };
