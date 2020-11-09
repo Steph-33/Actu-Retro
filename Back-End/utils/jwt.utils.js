@@ -82,7 +82,7 @@ module.exports = {
       jwt.verify(token, JWT_SIGN_SECRET, (error, user) => {
         if (error) {
           return response.status(403).json({
-            error: "Vous devez être connecté pour effectuer cette action. ❌",
+            error: "Token invalide. Vous devez être connecté(e) pour effectuer cette action. ❌",
           });
         }
         request.user = user;
