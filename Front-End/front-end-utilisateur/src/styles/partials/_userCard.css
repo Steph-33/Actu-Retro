@@ -2,16 +2,22 @@
 .dropdown-menu {
   margin-right: 5rem;
   color: #072050;
+  padding-left: 2vw;
 }
 
 .menu {
+  padding-top: 1em;
+  position: absolute;
   display: flex;
   flex-direction: column;
 }
 
 .menu-choice {
-  padding-top: 1em;
   color: #072050;
+  background-color: white;
+  padding-right: 2vw;
+  padding-left: 2vw;
+  padding-bottom: 4vh;
 }
 
 :hover.menu-choice {
@@ -28,16 +34,19 @@
   .dropdown-menu {
     margin-right: 5rem;
     color: white;
+    padding-left: 0;
   }
 
   .menu {
     display: flex;
     flex-direction: column;
+    position: relative;
   }
 
   .menu-choice {
     padding-top: 1em;
     color: white;
+    background-color: #072050;
   }
 
   :hover.menu-choice {
