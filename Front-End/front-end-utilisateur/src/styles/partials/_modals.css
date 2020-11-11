@@ -12,7 +12,8 @@
   padding: 0 12px 12px;
 }
 
-.modal-text {
+.modal-text,
+.login-modal-text {
   text-align: center;
   padding: 1vw;
   margin-top: 22vh;
@@ -33,7 +34,8 @@
   padding: 0 12px 12px;
 }
 
-.close {
+.close,
+.login-close {
   width: 4vw;
   height: 6vh;
   margin-top: 2vh;
@@ -68,6 +70,25 @@
     height: 10vh;
     margin-top: 3vh;
     margin-left: 100vw;
+  }
+
+  .login-modal {
+    bottom: 40vh;
+    left: 6vw;
+    width: 80vw;
+    height: 30vh;
+  }
+
+  .login-modal-text {
+    padding: 1vw;
+    margin-top: 5vh;
+  }
+
+  .login-close {
+    width: 8vw;
+    height: 4vh;
+    margin-top: 2vh;
+    margin-left: 70vw;
   }
 }
 /*---------------------------------^ FIN SECTION PORTABLE ^------------------------------------*/

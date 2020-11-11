@@ -1,4 +1,5 @@
 @import './styles/partials/_nav.css';
+@import './styles/partials/_modals.css';
 @import './styles/pages/_login.css';
 @import './styles/pages/_article.css';
 @import './styles/pages/_articleslist.css';

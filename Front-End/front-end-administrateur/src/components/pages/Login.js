@@ -8,7 +8,9 @@ export default function Login() {
   const [login, setLogin] = useState({ email: '', password: '' });
   const [error, setError] = useState(null);
   const [toDashboard, setToDashboard] = useState(false);
+  const [displayLoginModal, setDisplayLoginModal] = useState(false);
   const context = useContext(AuthContext);
+  const token = localStorage.getItem('token');
 
   useEffect(() => {
     return () => {};
@@ -38,6 +40,11 @@ export default function Login() {
         console.log(error.response.data);
         setError(error.response.data);
       });
+      if(!token){
+        setDisplayLoginModal(true);
+      }else{
+        setDisplayLoginModal(false);
+      }
     console.log(error);
   };
 
@@ -46,6 +53,14 @@ export default function Login() {
       className="container-login"
       onSubmit={handleSubmit}
     >
+      {displayLoginModal && 
+          <div className="login-modal">
+            <button className="login-close" onClick={()=> setDisplayLoginModal(!displayLoginModal)}>X</button>
+            <div className="login-modal-text">
+              Cet administrateur est inconnu. <br></br>
+              Merci d'entrer un login et un mot de passe existant.  
+            </div>
+          </div>}
       {toDashboard ? <Redirect to="/portal" /> : null}
       <h1>Bienvenue cher Administrateur !! </h1>
       <h3>Merci de t'identifier</h3>

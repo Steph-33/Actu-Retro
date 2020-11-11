@@ -1,0 +1,32 @@
+.login-modal {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 15vh;
+  left: 20vw;
+  background-color: white;
+  color: #072050;
+  width: 60vw;
+  height: 60vh;
+  padding: 0 12px 12px;
+}
+
+.login-modal-text {
+  text-align: center;
+  padding: 1vw;
+  margin-top: 18vh;
+  font-weight: bolder;
+  font-size: larger;
+}
+
+.login-close {
+  width: 4vw;
+  height: 6vh;
+  margin-top: 2vh;
+  margin-left: 55vw;
+  color: white;
+  background-color: #d3a55a;
+  font-weight: bolder;
+  font-size: larger;
+  cursor: pointer;
+}
