@@ -9,8 +9,8 @@ export default function NewProductsList() {
     const getNewProducts = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:8080/api/allnewproducts/9'
-          // 'http://localhost:8080/api/newproducts/'
+          // 'http://localhost:8080/api/allnewproducts/9'
+          'http://localhost:8080/api/newproducts/'
         );
         setAllNewProducts(response.data.reverse());
       } catch (error) {
