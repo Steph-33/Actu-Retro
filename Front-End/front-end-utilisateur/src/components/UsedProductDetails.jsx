@@ -7,7 +7,7 @@ export default function UsedProductDetails() {
     const [usedProduct, setUsedProduct] = useState({});
     const [otherProducts, setOtherProducts] = useState([]);
     const date = new Date();
-    const date_of_announcement = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()}`;
+    const date_of_announcement = `${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}`;
     let {id} = useParams(); 
     const [displayModal, setDisplayModal] = useState(false);
     const token = localStorage.getItem('token');
